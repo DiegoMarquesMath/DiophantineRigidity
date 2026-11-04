@@ -18,7 +18,7 @@ theorem complex_isCoprime_of_no_common_root
     (A W : Polynomial ℂ)
     (h : ∀ ρ : ℂ, A.eval ρ = 0 → W.eval ρ ≠ 0) :
     IsCoprime A W := by
-  apply (Polynomial.isCoprime_iff_aeval_ne_zero_of_isAlgClosed ℂ A W).2
+  apply (Polynomial.isCoprime_iff_aeval_ne_zero_of_isAlgClosed ℂ ℂ A W).2
   intro ρ
   have heval (P : Polynomial ℂ) :
       Polynomial.aeval ρ P = P.eval ρ := by
