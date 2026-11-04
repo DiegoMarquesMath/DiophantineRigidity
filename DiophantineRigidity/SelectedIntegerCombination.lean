@@ -48,8 +48,11 @@ theorem selectedIntegerCombination_eval_complex
   apply Finset.sum_congr rfl
   intro j _
   rw [Polynomial.eval₂_mul, Polynomial.eval₂_C]
-  push_cast
-  ring
+  have hcast :
+      (Int.castRingHom ℂ) ((t : ℤ) ^ j) = (t : ℂ) ^ j := by
+    simp
+  rw [hcast]
+  exact mul_comm _ _
 
 /-- Explicit bridge to the complex polynomial already selected by
 the root-avoidance lemma. -/
@@ -112,6 +115,7 @@ theorem selectedIntegerCombination_coeff_abs_le
           omega
         _ ≤ ((t : ℤ) + 1) ^ k := by
           gcongr
+          omega
     calc
       |(t : ℤ) ^ j * (V j).coeff n| =
           (t : ℤ) ^ j * |(V j).coeff n| := by
