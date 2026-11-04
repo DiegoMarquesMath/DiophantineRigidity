@@ -77,7 +77,7 @@ verify exact specialization and reciprocal-chart identities. Under two
 supplied integral Bézout certificates they derive
 
 $$
-\operatorname{cont}(q^D F(p/q,Y))\mid |K_1K_2|.
+\mathrm{cont}(q^D F(p/q,Y))\mid |K_1K_2|.
 $$
 
 The hypotheses on the certificate constants are explicit: this is not the
