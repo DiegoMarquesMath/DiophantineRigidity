@@ -91,3 +91,6 @@ for the new global theorems.
 #print axioms DiophantineRigidity.exists_selected_bounded_integral_bezout
 #print axioms DiophantineRigidity.integerContent_le_product_of_two_Bezout_charts
 #print axioms DiophantineRigidity.integerContent_le_of_two_Bezout_height_bounds
+#print axioms DiophantineRigidity.clearedEvaluation_zero_degree
+#print axioms DiophantineRigidity.clearedBivariate_zero_degree_eq
+#print axioms DiophantineRigidity.integerContent_eq_one_of_zero_degree_primitive
