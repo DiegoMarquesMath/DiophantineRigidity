@@ -20,3 +20,11 @@ for the new global theorems.
 #print axioms DiophantineRigidity.resultant_degree_margin
 
 #print axioms DiophantineRigidity.linearResultant_bound
+
+#print axioms DiophantineRigidity.integerContent_dvd_coeff
+#print axioms DiophantineRigidity.dvd_integerContent_iff
+#print axioms DiophantineRigidity.twoChart_dvd_constant
+#print axioms DiophantineRigidity.integerContent_dvd_constant_of_twoCharts
+#print axioms DiophantineRigidity.clearedBivariate_coeff
+#print axioms DiophantineRigidity.clearedBivariate_coeff_spec
+#print axioms DiophantineRigidity.clearedBivariate_ne_zero_of_coefficient

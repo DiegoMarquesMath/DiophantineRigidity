@@ -29,3 +29,14 @@ independent comparison of the exact formal statement with the manuscript.
 - Audited declaration axioms: only `propext`, `Classical.choice`, `Quot.sound`.
 - `linearResultant_bound` is a later addition and must be validated by its new CI run.
 - No new global counting, Cantor/S-number, or descent theorem is yet formalized.
+
+## Next unverified checkpoint (source commit not yet built)
+
+New code in `IntegerContent.lean`, `TwoChartDivisibility.lean` and
+`BivariateSpecialization.lean` formalizes the coefficient gcd,
+the elementary two-chart cancellation step, and the full integer
+specialization polynomial. The code must compile and pass the axiom
+audit before any declaration is marked verified.
+
+Crucially, neither polynomial Bezout certificates nor the full
+projective-content counting estimate of Lemma 4.1 are established here.

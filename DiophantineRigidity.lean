@@ -5,3 +5,6 @@ import DiophantineRigidity.ArithmeticSpecialization
 import DiophantineRigidity.HankelPairing
 import DiophantineRigidity.PropagationExponents
 import DiophantineRigidity.LinearResultant
+import DiophantineRigidity.IntegerContent
+import DiophantineRigidity.TwoChartDivisibility
+import DiophantineRigidity.BivariateSpecialization
