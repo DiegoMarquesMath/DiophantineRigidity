@@ -190,8 +190,8 @@ errors, audits principal declarations with `#print axioms` and rejects
 foundations `propext`, `Classical.choice` and `Quot.sound` are allowed.
 
 **Verified proof checkpoint:** commit
-[`5e563e74d0cf8aa72913cf918faf006e1ef41df5`](https://github.com/DiegoMarquesMath/DiophantineRigidity/tree/5e563e74d0cf8aa72913cf918faf006e1ef41df5);
-[GitHub Actions run 41879338537 — success](https://github.com/DiegoMarquesMath/DiophantineRigidity/actions/runs/41879338537).
+[`b3ceac232494702aa1e818c8c13198c6266e2200`](https://github.com/DiegoMarquesMath/DiophantineRigidity/tree/b3ceac232494702aa1e818c8c13198c6266e2200);
+[GitHub Actions run 41886957638 — success](https://github.com/DiegoMarquesMath/DiophantineRigidity/actions/runs/41886957638).
 
 The checkpoint certifies the exact Lean declarations in that commit,
 **not** the research theorems listed above as open. Read
