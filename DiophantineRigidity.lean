@@ -1,2 +1,4 @@
 import DiophantineRigidity.Witnesses
 import DiophantineRigidity.LegacyBridge
+import DiophantineRigidity.FareyBounds
+import DiophantineRigidity.ArithmeticSpecialization
