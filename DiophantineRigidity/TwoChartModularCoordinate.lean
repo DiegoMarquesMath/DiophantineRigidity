@@ -1,4 +1,4 @@
-import Mathlib.Data.ZMod.Basic
+import Mathlib
 
 /-!
 # Reciprocal projective congruences
