@@ -109,3 +109,5 @@ for the new global theorems.
 #print axioms DiophantineRigidity.exponent_le_degree_mul_ceil
 #print axioms DiophantineRigidity.prime_power_le_ceiling_modulus_pow
 #print axioms DiophantineRigidity.product_prime_powers_le_modulus_pow
+#print axioms DiophantineRigidity.first_chart_same_residue_cross_dvd
+#print axioms DiophantineRigidity.second_chart_same_residue_cross_dvd
