@@ -25,7 +25,11 @@ theorem sylvester_integer_to_complex
       (Int.castRingHom ℂ).mapMatrix (Polynomial.sylvester A W D e) := by
   classical
   ext i j
-  simp [Polynomial.sylvester]
+  refine Fin.addCases ?_ ?_ j
+  · intro j₁
+    simp [Polynomial.sylvester, Fin.addCases_left]
+  · intro j₁
+    simp [Polynomial.sylvester, Fin.addCases_right]
 
 /-- The exact integral resultant maps to the complex resultant
 without changing the declared polynomial-degree parameters. -/
@@ -38,7 +42,7 @@ theorem resultant_integer_to_complex
   unfold Polynomial.resultant
   rw [sylvester_integer_to_complex A W D e]
   exact (RingHom.map_det (Int.castRingHom ℂ)
-    (Polynomial.sylvester A W D e)).symm
+    (Polynomial.sylvester A W D e))
 
 /-- A nonzero complex resultant guarantees that the actual integer
 resultant is nonzero, for the same D,e. -/
