@@ -67,3 +67,10 @@ for the new global theorems.
 
 #print axioms DiophantineRigidity.sylvester_kernel_zero_of_coprime
 #print axioms DiophantineRigidity.exists_selected_integer_sylvester_kernel_zero
+
+#print axioms DiophantineRigidity.exists_integral_sylvester_certificate
+#print axioms DiophantineRigidity.exists_nonzero_integral_sylvester_certificate
+#print axioms DiophantineRigidity.integer_matrix_det_abs_le
+#print axioms DiophantineRigidity.sylvester_resultant_abs_le
+#print axioms DiophantineRigidity.exists_bounded_integral_sylvester_certificate
+#print axioms DiophantineRigidity.resultant_ne_zero_of_coprime_exact_left
