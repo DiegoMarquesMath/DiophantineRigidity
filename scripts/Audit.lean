@@ -104,3 +104,4 @@ for the new global theorems.
 #print axioms DiophantineRigidity.linear_chart_dvd_cross
 #print axioms DiophantineRigidity.linear_chart_dvd_constant_cross
 #print axioms DiophantineRigidity.linear_family_dvd_cross_of_integer_certificate
+#print axioms DiophantineRigidity.linear_family_modular_farey_count
