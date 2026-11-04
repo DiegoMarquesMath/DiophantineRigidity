@@ -70,7 +70,7 @@ theorem coprime_moduli_mul_dvd_cross
   have hN : a * b ∣ z.natAbs :=
     hcop.mul_dvd_of_dvd_of_dvd haN hbN
   have hN' : (((a * b : ℕ) : ℤ).natAbs) ∣ z.natAbs := by
-    simpa using hN
+    simpa only [Int.natAbs_natCast] using hN
   exact (Int.natAbs_dvd_natAbs).mp hN'
 
 /-- Two coprime prime-power congruence conditions combine
