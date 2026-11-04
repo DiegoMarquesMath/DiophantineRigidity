@@ -11,7 +11,7 @@ at most (2D)^omega(g).
 
 This theorem derives the combinatorial count *from actual finite
 choice sets*. It does not postulate that the p-adic polynomial
-solutions admit such finite covers: existence of the cover is the
+solutions have such finite covers: existence of the cover is the
 separate Lagrange-interpolation obligation.
 -/
 
