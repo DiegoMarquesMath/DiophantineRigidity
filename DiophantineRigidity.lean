@@ -24,3 +24,7 @@ import DiophantineRigidity.SylvesterKernel
 
 import DiophantineRigidity.SylvesterCertificates
 import DiophantineRigidity.SylvesterHeightBound
+
+import DiophantineRigidity.RationalCoefficientCoprimality
+import DiophantineRigidity.ResultantBaseChange
+import DiophantineRigidity.WitnessMonotonicity
