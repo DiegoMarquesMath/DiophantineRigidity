@@ -64,7 +64,7 @@ theorem exists_bounded_avoiding_evaluations
         ((t.val : ℕ) : K)) := by
     intro a b hab
     apply Fin.ext
-    exact_mod_cast hab
+    exact (Nat.cast_injective hab)
   have hcard :
       P.natDegree < Fintype.card (Fin (s.card * k + 1)) := by
     simpa using lt_of_le_of_lt hPdeg (Nat.lt_succ_self _)
