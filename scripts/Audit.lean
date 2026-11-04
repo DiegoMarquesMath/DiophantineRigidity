@@ -28,3 +28,8 @@ for the new global theorems.
 #print axioms DiophantineRigidity.clearedBivariate_coeff
 #print axioms DiophantineRigidity.clearedBivariate_coeff_spec
 #print axioms DiophantineRigidity.clearedBivariate_ne_zero_of_coefficient
+
+#print axioms DiophantineRigidity.integerContent_eq_zero_iff
+#print axioms DiophantineRigidity.integerContent_pos_of_ne_zero
+#print axioms DiophantineRigidity.clearedBivariate_degree_le
+#print axioms DiophantineRigidity.clearedBivariate_natDegree_le
