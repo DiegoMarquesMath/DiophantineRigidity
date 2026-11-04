@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "Cite this software repository and the exact verified proof commit. Cite the corresponding research article separately."
+type: software
+title: "DiophantineRigidity: Formal Verification of Diophantine Rigidity"
+authors:
+  - family-names: Marques
+    given-names: Diego
+repository-code: "https://github.com/DiegoMarquesMath/DiophantineRigidity"
+url: "https://github.com/DiegoMarquesMath/DiophantineRigidity"
+keywords:
+  - Lean 4
+  - mathlib
+  - Diophantine rigidity
+  - analytic graphs
+  - two-height counting
+  - Liouville numbers
+  - Mahler exponents
+  - arithmetic descent

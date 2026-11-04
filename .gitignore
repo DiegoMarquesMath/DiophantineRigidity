@@ -1,0 +1,20 @@
+# Lean build products
+.lake/
+*.olean
+*.ilean
+*.cmi
+*.trace
+
+# OS and editor
+.DS_Store
+.idea/
+.vscode/
+*.log
+logs/
+
+# Unpublished manuscript and private source audits: local only
+paper/ATH_rev.tex
+paper/ATH_rev.pdf
+paper/private/
+docs/local/
+docs/*LOCAL*.md

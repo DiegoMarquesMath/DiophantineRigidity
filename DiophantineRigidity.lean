@@ -1,0 +1,2 @@
+import DiophantineRigidity.Witnesses
+import DiophantineRigidity.LegacyBridge

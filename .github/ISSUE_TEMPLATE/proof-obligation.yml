@@ -1,0 +1,28 @@
+name: Mathematical proof obligation
+description: Record a precise mathematical lemma or Lean proof blocker
+labels: []
+body:
+  - type: textarea
+    id: theorem
+    attributes:
+      label: Exact statement and source
+      description: State every hypothesis, quantifier and requested bound. Do not paste unpublished text into a public issue without approval.
+    validations:
+      required: true
+  - type: textarea
+    id: current
+    attributes:
+      label: Current Lean progress
+      description: List proven declarations and the precise missing implication.
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Verification requirements
+      value: |
+        - [ ] Exact paper statement preserved
+        - [ ] Lean build passes
+        - [ ] No admitted proof, added axiom or hidden assumption
+        - [ ] Axiom output reviewed
+        - [ ] Exact proof commit recorded

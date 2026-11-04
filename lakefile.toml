@@ -1,0 +1,19 @@
+name = "diophantineRigidity"
+version = "0.1.0"
+defaultTargets = ["DiophantineRigidity"]
+
+[[require]]
+name = "mathlib"
+git = "https://github.com/leanprover-community/mathlib4.git"
+rev = "v4.24.0"
+
+# A separate Git dependency, pinned to the previously audited project.
+# Import individual facts by their precise Lean types; never regard the
+# earlier degree-one counting estimate as the new arbitrary-degree result.
+[[require]]
+name = "mahlerLean"
+git = "https://github.com/DiegoMarquesMath/MahlerLean.git"
+rev = "5a91bd60ebb8200886bdca21cc9c178bfb1f5f1d"
+
+[[lean_lib]]
+name = "DiophantineRigidity"
