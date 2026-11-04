@@ -30,3 +30,4 @@ import DiophantineRigidity.ResultantBaseChange
 import DiophantineRigidity.WitnessMonotonicity
 import DiophantineRigidity.SelectedResultantBridge
 import DiophantineRigidity.DegreeZeroContent
+import DiophantineRigidity.CongruenceSpacing
