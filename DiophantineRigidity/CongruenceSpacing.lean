@@ -40,7 +40,7 @@ theorem cross_modulus_real_separation
     exact modulus_le_cross_natAbs p p' q q' M hne hdvd
   have hzR : (M : ℝ) ≤ |(z : ℝ)| := by
     have hzR' : (M : ℝ) ≤ (z.natAbs : ℝ) := by exact_mod_cast hz
-    simpa only [Int.cast_natAbs] using hzR'
+    simpa only [Int.cast_natAbs, Int.cast_abs] using hzR'
   have hqR : (0 : ℝ) < q := by exact_mod_cast hq
   have hq'R : (0 : ℝ) < q' := by exact_mod_cast hq'
   have hden : (0 : ℝ) < (q : ℝ) * q' := mul_pos hqR hq'R
@@ -50,7 +50,6 @@ theorem cross_modulus_real_separation
     dsimp [z]
     push_cast
     field_simp
-    ring
   rw [heq, abs_div, abs_of_pos hden]
   exact (div_le_div_iff_of_pos_right hden).mpr hzR
 
@@ -70,7 +69,8 @@ theorem coprime_moduli_mul_dvd_cross
     simpa using (Int.natAbs_dvd_natAbs).mpr hb
   have hN : a * b ∣ z.natAbs :=
     hcop.mul_dvd_of_dvd_of_dvd haN hbN
-  exact (Int.natAbs_dvd_natAbs).mp (by simpa using hN)
+  rw [← Int.natAbs_dvd_natAbs]
+  simpa using hN
 
 /-- Two coprime prime-power congruence conditions combine
 into one strengthened separation inequality. -/
