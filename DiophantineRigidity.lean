@@ -2,3 +2,5 @@ import DiophantineRigidity.Witnesses
 import DiophantineRigidity.LegacyBridge
 import DiophantineRigidity.FareyBounds
 import DiophantineRigidity.ArithmeticSpecialization
+import DiophantineRigidity.HankelPairing
+import DiophantineRigidity.PropagationExponents

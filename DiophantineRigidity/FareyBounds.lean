@@ -18,6 +18,7 @@ noncomputable section
 namespace DiophantineRigidity
 
 open Set MeasureTheory
+open scoped ENNReal
 
 /-- The precise one-interval spacing estimate needed in Section 2. -/
 theorem farey_interval_bound (l u : ℝ) (Q : ℕ)

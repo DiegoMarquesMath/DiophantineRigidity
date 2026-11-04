@@ -38,3 +38,16 @@ Run `bash scripts/check.sh` with pinned Lean 4.24.0 and inspect the
 `#print axioms` output of the declarations above. The exact
 manuscript-to-Lean statement correspondence for the revised TeX is
 a separate review.
+
+## Additional verified-form targets (pending CI)
+
+- `HankelPairing.lean`: the nondegeneracy of the multiplication
+  pairing induced by any nonzero functional on a field. This is the
+  abstract field argument in Lemma 3.2, **not** the Hankel recovery
+  theorem (which also requires reconstruction and cofactor estimates).
+- `PropagationExponents.lean`: exact interpolation-loss identity
+  `omega + (k-1) nu = k theta (1+2D+2s)` and the degree margin
+  `k+h-1-w <= -(w-2k+1)` for `h<=k`. These are arithmetic
+  sublemmas used by the resultant step, not the propagation lemma itself.
+
+Both are included in the axiom audit. The entire new proof chain remains open.

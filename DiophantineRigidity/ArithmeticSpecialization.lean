@@ -50,7 +50,9 @@ theorem clearedEvaluation_spec (P : Polynomial ℤ) (p q : ℤ) (D : ℕ)
       _ = (q : ℝ) ^ (D - i) * (q : ℝ) ^ i := pow_add _ _ _
   rw [hpow, div_pow]
   field_simp [hqR]
-  ring
+  change (P.coeff i : ℝ) * (p : ℝ) ^ i =
+    (p : ℝ) ^ i * (P.coeff i : ℝ)
+  exact mul_comm _ _
 
 /-- The scaled value is an integer. This is the form used when taking
 integer contents of the Y-coefficients of a bivariate specialization. -/
