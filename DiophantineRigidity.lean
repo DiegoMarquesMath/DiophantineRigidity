@@ -33,3 +33,4 @@ import DiophantineRigidity.DegreeZeroContent
 import DiophantineRigidity.CongruenceSpacing
 import DiophantineRigidity.ModularFareyPacking
 import DiophantineRigidity.LinearChartCongruence
+import DiophantineRigidity.PrimeResidueCover
