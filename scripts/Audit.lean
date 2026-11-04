@@ -41,3 +41,6 @@ for the new global theorems.
 #print axioms DiophantineRigidity.reflectedBivariate_coeff
 #print axioms DiophantineRigidity.clearedBivariate_reflection
 #print axioms DiophantineRigidity.integerContent_dvd_product_of_two_Bezout_charts
+
+#print axioms DiophantineRigidity.exists_integral_sylvester_certificate
+#print axioms DiophantineRigidity.exists_nonzero_integral_sylvester_certificate

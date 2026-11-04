@@ -12,3 +12,5 @@ import DiophantineRigidity.BezoutCertificates
 
 import DiophantineRigidity.ProjectiveBezoutBridge
 import DiophantineRigidity.ProjectiveReciprocity
+
+import DiophantineRigidity.SylvesterCertificates
