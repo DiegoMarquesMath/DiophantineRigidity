@@ -54,4 +54,36 @@ theorem cross_modulus_real_separation
   rw [heq, abs_div, abs_of_pos hden]
   exact (div_le_div_iff_of_pos_right hden).mpr hzR
 
+
+/-- The Chinese remainder arithmetic step: two coprime moduli
+dividing the same integer cross determinant have a product
+which also divides it. This handles a pair of prime-power
+congruence conditions without any analytic hypotheses. -/
+theorem coprime_moduli_mul_dvd_cross
+    (a b : ℕ) (z : ℤ)
+    (hcop : Nat.Coprime a b)
+    (ha : (a : ℤ) ∣ z) (hb : (b : ℤ) ∣ z) :
+    ((a * b : ℕ) : ℤ) ∣ z := by
+  have haN : a ∣ z.natAbs := by
+    simpa using (Int.natAbs_dvd_natAbs).mpr ha
+  have hbN : b ∣ z.natAbs := by
+    simpa using (Int.natAbs_dvd_natAbs).mpr hb
+  have hN : a * b ∣ z.natAbs :=
+    hcop.mul_dvd_of_dvd_of_dvd haN hbN
+  exact (Int.natAbs_dvd_natAbs).mp (by simpa using hN)
+
+/-- Two coprime prime-power congruence conditions combine
+into one strengthened separation inequality. -/
+theorem coprime_moduli_real_separation
+    (p p' : ℤ) (q q' a b : ℕ)
+    (hq : 0 < q) (hq' : 0 < q')
+    (hne : p * (q' : ℤ) - p' * (q : ℤ) ≠ 0)
+    (hcop : Nat.Coprime a b)
+    (ha : (a : ℤ) ∣ p * (q' : ℤ) - p' * (q : ℤ))
+    (hb : (b : ℤ) ∣ p * (q' : ℤ) - p' * (q : ℤ)) :
+    ((a * b : ℕ) : ℝ) / ((q : ℝ) * (q' : ℝ)) ≤
+      |(p : ℝ) / (q : ℝ) - (p' : ℝ) / (q' : ℝ)| :=
+  cross_modulus_real_separation p p' q q' (a * b) hq hq'
+    hne (coprime_moduli_mul_dvd_cross a b _ hcop ha hb)
+
 end DiophantineRigidity
