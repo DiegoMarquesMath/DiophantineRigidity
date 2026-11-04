@@ -114,10 +114,10 @@ theorem exists_selectedCombination_nonzero_on
   refine ⟨t, ht, ?_⟩
   intro ρ hρ
   have hh := havoid ρ hρ
-  rw [show (B ρ).eval (t : ℂ) =
-    (selectedCombination V k t).eval ρ from by
-      rw [selectedCombination_eval, obstructionPolynomial_eval]
-      rfl] at hh
+  have heq :
+      (B ρ).eval (t : ℂ) = (selectedCombination V k t).eval ρ := by
+    rw [selectedCombination_eval, obstructionPolynomial_eval]
+  rw [heq] at hh
   exact hh
 
 end DiophantineRigidity
