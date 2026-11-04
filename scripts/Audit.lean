@@ -51,3 +51,10 @@ for the new global theorems.
 #print axioms DiophantineRigidity.obstructionPolynomial_eval
 #print axioms DiophantineRigidity.selectedCombination_eval
 #print axioms DiophantineRigidity.exists_selectedCombination_nonzero_on
+
+#print axioms DiophantineRigidity.selectedIntegerCombination_coeff
+#print axioms DiophantineRigidity.selectedIntegerCombination_eval_complex
+#print axioms DiophantineRigidity.selectedIntegerCombination_as_complex
+#print axioms DiophantineRigidity.exists_selectedIntegerCombination_nonzero_on
+#print axioms DiophantineRigidity.selectedIntegerCombination_coeff_abs_le
+#print axioms DiophantineRigidity.selectedIntegerCombination_coeff_abs_le_kD

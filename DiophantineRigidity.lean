@@ -16,3 +16,5 @@ import DiophantineRigidity.ProjectiveReciprocity
 import DiophantineRigidity.BoundedRootAvoidance
 
 import DiophantineRigidity.SelectedCombination
+
+import DiophantineRigidity.SelectedIntegerCombination

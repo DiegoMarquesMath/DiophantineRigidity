@@ -33,3 +33,21 @@ The remaining statement-level bridge identifies S with the complex
 root set of A (degree D), verifies no common coefficient zero
 from coprimality, and proves the precise integer height estimate
 for W_t. This module is not itself the full projective-content lemma.
+
+## Integral auxiliary polynomial and its height (new CI checkpoint)
+
+The new `SelectedIntegerCombination.lean` implements the *actual*
+\(W_t\in\mathbb Z[X]\) from the paper and its evaluation in \(\mathbb C\).
+Given a finite set of at most D complex points and the non-common-zero
+assumption, one integer \(0\le t\le kD\) suffices.
+
+For all X-coefficients \(i\), when \(|[X^i]V_j|\le H\) for
+\(0\le j\le k\), the new quantitative theorem proves
+\[
+|[X^i]W_t|\le (k+1)(kD+1)^k H.
+\]
+Thus \(H(W_t)\ll_{D,k}H(F)\).
+
+These are precisely the selection and height-control obligations.
+**They still do not derive the non-common-zero hypothesis from the
+rational gcd condition, nor nonvanishing of Res(A,W_t).**
