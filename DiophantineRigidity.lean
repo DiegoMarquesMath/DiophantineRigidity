@@ -21,3 +21,6 @@ import DiophantineRigidity.SelectedIntegerCombination
 import DiophantineRigidity.PolynomialRootAvoidance
 import DiophantineRigidity.ComplexCoprimality
 import DiophantineRigidity.SylvesterKernel
+
+import DiophantineRigidity.SylvesterCertificates
+import DiophantineRigidity.SylvesterHeightBound
