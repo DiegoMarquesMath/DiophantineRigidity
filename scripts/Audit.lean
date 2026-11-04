@@ -1,6 +1,51 @@
 import DiophantineRigidity
 
--- Only declarations actually implemented are audited at this checkpoint.
+/-!
+The following declarations are real checked results, not placeholders
+for the new global theorems.
+-/
+
 #print axioms DiophantineRigidity.mem_exceptionalArguments
 #print axioms DiophantineRigidity.reducedRationalSpacing
 #print axioms DiophantineRigidity.entireRigidityFromLegacy
+#print axioms DiophantineRigidity.farey_interval_bound
+#print axioms DiophantineRigidity.farey_union_bound
+#print axioms DiophantineRigidity.clearedEvaluation_spec
+#print axioms DiophantineRigidity.exists_integer_cleared_evaluation
+#print axioms DiophantineRigidity.exists_integer_cleared_coefficient
+
+#print axioms DiophantineRigidity.fieldMultiplication_nondegenerate
+#print axioms DiophantineRigidity.fieldMultiplication_radical_eq_zero
+#print axioms DiophantineRigidity.propagation_loss_identity
+#print axioms DiophantineRigidity.resultant_degree_margin
+
+#print axioms DiophantineRigidity.linearResultant_bound
+
+#print axioms DiophantineRigidity.integerContent_dvd_coeff
+#print axioms DiophantineRigidity.dvd_integerContent_iff
+#print axioms DiophantineRigidity.twoChart_dvd_constant
+#print axioms DiophantineRigidity.integerContent_dvd_constant_of_twoCharts
+#print axioms DiophantineRigidity.clearedBivariate_coeff
+#print axioms DiophantineRigidity.clearedBivariate_coeff_spec
+#print axioms DiophantineRigidity.clearedBivariate_ne_zero_of_coefficient
+
+#print axioms DiophantineRigidity.nonzero_coefficient_of_bezout_certificate
+#print axioms DiophantineRigidity.clearedBivariate_ne_zero_of_bezout
+
+#print axioms DiophantineRigidity.clearedBezout_sum_identity
+#print axioms DiophantineRigidity.integerContent_dvd_Bezout_chart
+#print axioms DiophantineRigidity.twoChart_dvd_product
+
+#print axioms DiophantineRigidity.reflect_natDegree_le
+#print axioms DiophantineRigidity.clearedEvaluation_reflect
+#print axioms DiophantineRigidity.reflectedBivariate_coeff
+#print axioms DiophantineRigidity.clearedBivariate_reflection
+#print axioms DiophantineRigidity.integerContent_dvd_product_of_two_Bezout_charts
+
+#print axioms DiophantineRigidity.exists_integral_sylvester_certificate
+#print axioms DiophantineRigidity.exists_nonzero_integral_sylvester_certificate
+
+#print axioms DiophantineRigidity.integer_matrix_det_abs_le
+#print axioms DiophantineRigidity.sylvester_entries_abs_le
+#print axioms DiophantineRigidity.sylvester_resultant_abs_le
+#print axioms DiophantineRigidity.exists_bounded_integral_sylvester_certificate

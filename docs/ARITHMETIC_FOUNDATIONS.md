@@ -1,0 +1,67 @@
+# Arithmetic foundations — formalization checkpoint
+
+**Branch:** `proofs/arithmetic-foundations`  
+**Manuscript:** *Diophantine Rigidity of Analytic Graphs*, Sections 2–4.  
+**Verification status:** source definitions and proofs submitted; no claim of
+successful validation until GitHub Actions completes and is inspected.
+
+## Newly written Lean declarations
+
+- `DiophantineRigidity.clearedEvaluation` is the integral expression
+  \(\sum_{i=0}^{D} a_i p^i q^{D-i}\).
+- `clearedEvaluation_spec` proves that it equals
+  \(q^D P(p/q)\), for every integer polynomial \(P\) of degree at most
+  \(D\) and every nonzero integer \(q\).
+- `exists_integer_cleared_evaluation` packages the integral witness.
+- `exists_integer_cleared_coefficient` lifts the fact to each
+  \(Y\)-coefficient of \(F\in\mathbb Z[X,Y]\), using
+  `Polynomial (Polynomial ℤ)` with outer variable \(Y\).
+- `farey_interval_bound` and `farey_union_bound` expose equation (2.3)
+  through existing **previously formalized** MahlerLean theorems.
+
+## What is *not* proved by these declarations
+
+- A bound for contents of the integer coefficient polynomial
+  \(q^D F(p/q,Y)\).
+- The two-chart \(p\)-adic argument of Lemma 4.1.
+- The integral kernel and Hankel reconstruction of Lemmas 3.1–3.2.
+- The resultant inequality of Lemma 4.2.
+- The multiscale propagation of Lemma 5.1.
+- The main two-height count or S-number/Cantor/descent theorems.
+
+These remain explicit obligations and cannot be certified by
+compiling this checkpoint alone.
+
+## Evidence required
+
+Run `bash scripts/check.sh` with pinned Lean 4.24.0 and inspect the
+`#print axioms` output of the declarations above. The exact
+manuscript-to-Lean statement correspondence for the revised TeX is
+a separate review.
+
+## Additional verified-form targets (pending CI)
+
+- `HankelPairing.lean`: the nondegeneracy of the multiplication
+  pairing induced by any nonzero functional on a field. This is the
+  abstract field argument in Lemma 3.2, **not** the Hankel recovery
+  theorem (which also requires reconstruction and cofactor estimates).
+- `PropagationExponents.lean`: exact interpolation-loss identity
+  `omega + (k-1) nu = k theta (1+2D+2s)` and the degree margin
+  `k+h-1-w <= -(w-2k+1)` for `h<=k`. These are arithmetic
+  sublemmas used by the resultant step, not the propagation lemma itself.
+
+Both are included in the axiom audit. The entire new proof chain remains open.
+
+## Degree-one resultant (next audit target)
+
+The new `linearResultant_bound` states, for integers `a,b,c,d` with
+`ad-bc\ne0` and every real `y`:
+
+```math
+1\le |ay+b|\,|c|+|cy+d|\,|a|.
+```
+
+It is the degree-one instance of Lemma 4.2, proved from the integral
+cross-determinant and the triangle inequality. **The arbitrary-degree
+Sylvester resultant estimate remains open.** This addition is submitted
+for a fresh Lean build and axiom audit.
