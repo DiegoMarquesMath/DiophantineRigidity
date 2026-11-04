@@ -52,8 +52,7 @@ theorem modular_farey_interval_card_le
         (M : ℝ) / ((r.den : ℝ) * (s.den : ℝ)) := by
     apply (div_le_div_iff₀ (by positivity : (0 : ℝ) < 4 * (Q : ℝ) ^ 2)
       (mul_pos hrpos hspos)).2
-    have hnonneg : (0 : ℝ) ≤ M := le_of_lt hMr
-    nlinarith [mul_nonneg hnonneg (le_of_lt hprod)]
+    exact mul_le_mul_of_nonneg_left (le_of_lt hprod) (le_of_lt hMr)
   exact hstep.trans (by simpa only [Rat.cast_def] using hsep)
 
 
@@ -110,5 +109,6 @@ theorem modular_farey_finite_classes_card_le
     _ = (t.card : ℝ) *
         ((u - l) / ((M : ℝ) / (4 * (Q : ℝ) ^ 2)) + 1) := by
       simp [nsmul_eq_mul]
+      ring
 
 end DiophantineRigidity
