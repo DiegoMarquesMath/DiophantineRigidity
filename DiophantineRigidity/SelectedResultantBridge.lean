@@ -85,4 +85,46 @@ theorem exists_selected_integer_nonzero_resultant_with_height
     selectedIntegerCombination_coeff_abs_le_kD
       V k D t i H ht hH hV⟩
 
+
+/-- The degree of a selected integral combination is bounded by the
+maximum input degree, uniformly in the parameter t. -/
+theorem selectedIntegerCombination_natDegree_le
+    (V : ℕ → Polynomial ℤ) (k t e : ℕ)
+    (hVdeg : ∀ j ≤ k, (V j).natDegree ≤ e) :
+    (selectedIntegerCombination V k t).natDegree ≤ e := by
+  apply Polynomial.natDegree_le_iff_coeff_eq_zero.mpr
+  intro N hN
+  rw [selectedIntegerCombination_coeff]
+  apply Finset.sum_eq_zero
+  intro j hj
+  have hjk : j ≤ k := Nat.lt_succ_iff.mp (Finset.mem_range.mp hj)
+  have hz : (V j).coeff N = 0 :=
+    Polynomial.coeff_eq_zero_of_natDegree_lt (lt_of_le_of_lt (hVdeg j hjk) hN)
+  simp [hz]
+
+/-- A quantitative selected integral resultant requiring only input
+degree bounds on the V_j. In particular, no selected-polynomial
+degree hypothesis or nonzero resultant is assumed. -/
+theorem exists_selected_integer_nonzero_resultant_from_degrees
+    (A : Polynomial ℤ) (V : ℕ → Polynomial ℤ)
+    (k D e : ℕ) (H : ℤ)
+    (hA : A.map (Int.castRingHom ℂ) ≠ 0)
+    (hD : (A.map (Int.castRingHom ℂ)).natDegree = D)
+    (hspan : rationalCoefficientIdeal
+      (A.map (Int.castRingHom ℚ))
+      (fun j => (V j).map (Int.castRingHom ℚ)) k = ⊤)
+    (hVdeg : ∀ j ≤ k, (V j).natDegree ≤ e)
+    (hH : 0 ≤ H)
+    (hV : ∀ j ≤ k, ∀ i, |(V j).coeff i| ≤ H) :
+    ∃ t : ℕ, t ≤ k * D ∧
+      Polynomial.resultant A (selectedIntegerCombination V k t) D e ≠ 0 ∧
+      ∀ i : ℕ, |(selectedIntegerCombination V k t).coeff i| ≤
+        ((k + 1 : ℕ) : ℤ) *
+          (((k * D : ℕ) : ℤ) + 1) ^ k * H := by
+  apply exists_selected_integer_nonzero_resultant_with_height
+    A V k D e H hA hD hspan ?_ hH hV
+  intro t ht
+  exact (Polynomial.natDegree_map_le).trans
+    (selectedIntegerCombination_natDegree_le V k t e hVdeg)
+
 end DiophantineRigidity
