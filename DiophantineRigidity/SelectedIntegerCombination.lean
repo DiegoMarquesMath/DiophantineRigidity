@@ -95,7 +95,6 @@ theorem exists_selectedIntegerCombination_nonzero_on
 height and polynomially (with a fixed exponent) in t. -/
 theorem selectedIntegerCombination_coeff_abs_le
     (V : ℕ → Polynomial ℤ) (k t n : ℕ) (H : ℤ)
-    (hH : 0 ≤ H)
     (hV : ∀ j ≤ k, ∀ i, |(V j).coeff i| ≤ H) :
     |(selectedIntegerCombination V k t).coeff n| ≤
       ((k + 1 : ℕ) : ℤ) * ((t : ℤ) + 1) ^ k * H := by
@@ -141,7 +140,7 @@ theorem selectedIntegerCombination_coeff_abs_le_kD
     (hV : ∀ j ≤ k, ∀ i, |(V j).coeff i| ≤ H) :
     |(selectedIntegerCombination V k t).coeff n| ≤
       ((k + 1 : ℕ) : ℤ) * (((k * D : ℕ) : ℤ) + 1) ^ k * H := by
-  have hb := selectedIntegerCombination_coeff_abs_le V k t n H hH hV
+  have hb := selectedIntegerCombination_coeff_abs_le V k t n H hV
   calc
     |(selectedIntegerCombination V k t).coeff n| ≤
         ((k + 1 : ℕ) : ℤ) * ((t : ℤ) + 1) ^ k * H := hb
