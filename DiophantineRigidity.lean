@@ -29,3 +29,4 @@ import DiophantineRigidity.RationalCoefficientCoprimality
 import DiophantineRigidity.ResultantBaseChange
 import DiophantineRigidity.WitnessMonotonicity
 import DiophantineRigidity.SelectedResultantBridge
+import DiophantineRigidity.CongruenceSpacing
