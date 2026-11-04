@@ -16,3 +16,5 @@ import DiophantineRigidity.ProjectiveReciprocity
 import DiophantineRigidity.SylvesterCertificates
 
 import DiophantineRigidity.SylvesterHeightBound
+
+import DiophantineRigidity.ResultantBaseChange
