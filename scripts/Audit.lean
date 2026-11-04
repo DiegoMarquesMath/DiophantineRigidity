@@ -105,3 +105,7 @@ for the new global theorems.
 #print axioms DiophantineRigidity.linear_chart_dvd_constant_cross
 #print axioms DiophantineRigidity.linear_family_dvd_cross_of_integer_certificate
 #print axioms DiophantineRigidity.linear_family_modular_farey_count
+#print axioms DiophantineRigidity.prime_residue_root_classes_card_le
+#print axioms DiophantineRigidity.exponent_le_degree_mul_ceil
+#print axioms DiophantineRigidity.prime_power_le_ceiling_modulus_pow
+#print axioms DiophantineRigidity.product_prime_powers_le_modulus_pow
