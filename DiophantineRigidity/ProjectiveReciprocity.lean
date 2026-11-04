@@ -171,4 +171,60 @@ theorem integerContent_dvd_product_of_two_Bezout_charts
   exact twoChart_dvd_product g K₁.natAbs K₂.natAbs
     q.natAbs p.natAbs (D + E₁) (D + E₂) hpq.symm hn₁ hn₂
 
+
+/-- A quantitative form of the two-chart content divisibility theorem.
+If both supplied integral certificate constants are nonzero, the
+integer content is bounded independently of the coprime coordinates p,q.
+This holds even if the specialized polynomial is zero: in that case
+the hypotheses force a contradiction, rather than silently excluding it. -/
+theorem integerContent_le_product_of_two_Bezout_charts
+    (F : Polynomial (Polynomial ℤ))
+    (U V : ℕ → Polynomial ℤ)
+    (K₁ K₂ p q : ℤ) (D E₁ E₂ : ℕ)
+    (hp : p ≠ 0) (hq : q ≠ 0)
+    (hpq : Nat.Coprime p.natAbs q.natAbs)
+    (hF : ∀ j, (F.coeff j).natDegree ≤ D)
+    (hU : ∀ j ∈ F.support, (U j).natDegree ≤ E₁)
+    (hV : ∀ j ∈ (reflectedBivariate F D).support,
+      (V j).natDegree ≤ E₂)
+    (hcert₁ :
+      (∑ j ∈ F.support, U j * F.coeff j) = Polynomial.C K₁)
+    (hcert₂ :
+      (∑ j ∈ (reflectedBivariate F D).support,
+        V j * (reflectedBivariate F D).coeff j) = Polynomial.C K₂)
+    (hK₁ : K₁ ≠ 0) (hK₂ : K₂ ≠ 0) :
+    integerContent (clearedBivariate F p q D) ≤
+      K₁.natAbs * K₂.natAbs := by
+  have hdvd := integerContent_dvd_product_of_two_Bezout_charts
+    F U V K₁ K₂ p q D E₁ E₂ hp hq hpq hF hU hV hcert₁ hcert₂
+  have hpos : 0 < K₁.natAbs * K₂.natAbs := by
+    exact Nat.mul_pos (Int.natAbs_pos.mpr hK₁) (Int.natAbs_pos.mpr hK₂)
+  exact Nat.le_of_dvd hpos hdvd
+
+/-- Uniformity in the source rational: once chartwise certificate
+constants have height bounds M₁,M₂, the content of every coprime
+specialization is at most their product, without dependence on p or q. -/
+theorem integerContent_le_of_two_Bezout_height_bounds
+    (F : Polynomial (Polynomial ℤ))
+    (U V : ℕ → Polynomial ℤ)
+    (K₁ K₂ p q : ℤ) (D E₁ E₂ M₁ M₂ : ℕ)
+    (hp : p ≠ 0) (hq : q ≠ 0)
+    (hpq : Nat.Coprime p.natAbs q.natAbs)
+    (hF : ∀ j, (F.coeff j).natDegree ≤ D)
+    (hU : ∀ j ∈ F.support, (U j).natDegree ≤ E₁)
+    (hV : ∀ j ∈ (reflectedBivariate F D).support,
+      (V j).natDegree ≤ E₂)
+    (hcert₁ :
+      (∑ j ∈ F.support, U j * F.coeff j) = Polynomial.C K₁)
+    (hcert₂ :
+      (∑ j ∈ (reflectedBivariate F D).support,
+        V j * (reflectedBivariate F D).coeff j) = Polynomial.C K₂)
+    (hK₁ : K₁ ≠ 0) (hK₂ : K₂ ≠ 0)
+    (hbound₁ : K₁.natAbs ≤ M₁) (hbound₂ : K₂.natAbs ≤ M₂) :
+    integerContent (clearedBivariate F p q D) ≤ M₁ * M₂ := by
+  exact (integerContent_le_product_of_two_Bezout_charts
+    F U V K₁ K₂ p q D E₁ E₂ hp hq hpq
+      hF hU hV hcert₁ hcert₂ hK₁ hK₂).trans
+    (Nat.mul_le_mul hbound₁ hbound₂)
+
 end DiophantineRigidity
