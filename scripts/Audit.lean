@@ -1,6 +1,86 @@
 import DiophantineRigidity
 
--- Only declarations actually implemented are audited at this checkpoint.
+/-!
+The following declarations are real checked results, not placeholders
+for the new global theorems.
+-/
+
 #print axioms DiophantineRigidity.mem_exceptionalArguments
 #print axioms DiophantineRigidity.reducedRationalSpacing
 #print axioms DiophantineRigidity.entireRigidityFromLegacy
+#print axioms DiophantineRigidity.farey_interval_bound
+#print axioms DiophantineRigidity.farey_union_bound
+#print axioms DiophantineRigidity.clearedEvaluation_spec
+#print axioms DiophantineRigidity.exists_integer_cleared_evaluation
+#print axioms DiophantineRigidity.exists_integer_cleared_coefficient
+
+#print axioms DiophantineRigidity.fieldMultiplication_nondegenerate
+#print axioms DiophantineRigidity.fieldMultiplication_radical_eq_zero
+#print axioms DiophantineRigidity.propagation_loss_identity
+#print axioms DiophantineRigidity.resultant_degree_margin
+
+#print axioms DiophantineRigidity.linearResultant_bound
+
+#print axioms DiophantineRigidity.integerContent_dvd_coeff
+#print axioms DiophantineRigidity.dvd_integerContent_iff
+#print axioms DiophantineRigidity.twoChart_dvd_constant
+#print axioms DiophantineRigidity.integerContent_dvd_constant_of_twoCharts
+#print axioms DiophantineRigidity.clearedBivariate_coeff
+#print axioms DiophantineRigidity.clearedBivariate_coeff_spec
+#print axioms DiophantineRigidity.clearedBivariate_ne_zero_of_coefficient
+
+#print axioms DiophantineRigidity.nonzero_coefficient_of_bezout_certificate
+#print axioms DiophantineRigidity.clearedBivariate_ne_zero_of_bezout
+
+#print axioms DiophantineRigidity.clearedBezout_sum_identity
+#print axioms DiophantineRigidity.integerContent_dvd_Bezout_chart
+#print axioms DiophantineRigidity.twoChart_dvd_product
+
+#print axioms DiophantineRigidity.reflect_natDegree_le
+#print axioms DiophantineRigidity.clearedEvaluation_reflect
+#print axioms DiophantineRigidity.reflectedBivariate_coeff
+#print axioms DiophantineRigidity.clearedBivariate_reflection
+#print axioms DiophantineRigidity.integerContent_dvd_product_of_two_Bezout_charts
+
+#print axioms DiophantineRigidity.exists_bounded_avoiding_evaluations
+#print axioms DiophantineRigidity.exists_avoiding_with_kD_bound
+
+#print axioms DiophantineRigidity.obstructionPolynomial_coeff
+#print axioms DiophantineRigidity.obstructionPolynomial_natDegree_le
+#print axioms DiophantineRigidity.obstructionPolynomial_ne_zero
+#print axioms DiophantineRigidity.obstructionPolynomial_eval
+#print axioms DiophantineRigidity.selectedCombination_eval
+#print axioms DiophantineRigidity.exists_selectedCombination_nonzero_on
+
+#print axioms DiophantineRigidity.selectedIntegerCombination_coeff
+#print axioms DiophantineRigidity.selectedIntegerCombination_eval_complex
+#print axioms DiophantineRigidity.selectedIntegerCombination_as_complex
+#print axioms DiophantineRigidity.exists_selectedIntegerCombination_nonzero_on
+#print axioms DiophantineRigidity.selectedIntegerCombination_coeff_abs_le
+#print axioms DiophantineRigidity.selectedIntegerCombination_coeff_abs_le_kD
+
+#print axioms DiophantineRigidity.exists_selected_integer_avoiding_roots
+#print axioms DiophantineRigidity.exists_bounded_integer_avoiding_roots
+
+#print axioms DiophantineRigidity.complex_isCoprime_of_no_common_root
+#print axioms DiophantineRigidity.exists_selected_integer_coprime_complex
+
+#print axioms DiophantineRigidity.sylvester_kernel_zero_of_coprime
+#print axioms DiophantineRigidity.exists_selected_integer_sylvester_kernel_zero
+
+#print axioms DiophantineRigidity.exists_integral_sylvester_certificate
+#print axioms DiophantineRigidity.exists_nonzero_integral_sylvester_certificate
+#print axioms DiophantineRigidity.integer_matrix_det_abs_le
+#print axioms DiophantineRigidity.sylvester_resultant_abs_le
+#print axioms DiophantineRigidity.exists_bounded_integral_sylvester_certificate
+#print axioms DiophantineRigidity.resultant_ne_zero_of_coprime_exact_left
+
+-- Recovered and integrated from separately CI-validated proof branches.
+#print axioms DiophantineRigidity.noncommon_root_of_rationalCoefficientIdeal_eq_top
+#print axioms DiophantineRigidity.noncommon_root_integer_of_rationalCoefficientIdeal_eq_top
+#print axioms DiophantineRigidity.exists_selected_integer_coprime_of_rationalCoefficientIdeal
+#print axioms DiophantineRigidity.sylvester_integer_to_complex
+#print axioms DiophantineRigidity.resultant_integer_to_complex
+#print axioms DiophantineRigidity.resultant_integer_ne_zero_of_complex
+#print axioms DiophantineRigidity.HasPolynomialWitness.mono_degree
+#print axioms DiophantineRigidity.exceptionalArguments_mono_degree
