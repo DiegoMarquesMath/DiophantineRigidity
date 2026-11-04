@@ -100,3 +100,4 @@ for the new global theorems.
 #print axioms DiophantineRigidity.coprime_moduli_real_separation
 #print axioms DiophantineRigidity.modular_farey_interval_card_le
 #print axioms DiophantineRigidity.modular_farey_finite_classes_card_le
+#print axioms DiophantineRigidity.prime_residue_root_classes_card_le
