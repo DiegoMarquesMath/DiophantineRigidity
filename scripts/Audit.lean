@@ -88,3 +88,4 @@ for the new global theorems.
 #print axioms DiophantineRigidity.exists_selected_integer_nonzero_resultant_with_height
 #print axioms DiophantineRigidity.selectedIntegerCombination_natDegree_le
 #print axioms DiophantineRigidity.exists_selected_integer_nonzero_resultant_from_degrees
+#print axioms DiophantineRigidity.exists_selected_bounded_integral_bezout
