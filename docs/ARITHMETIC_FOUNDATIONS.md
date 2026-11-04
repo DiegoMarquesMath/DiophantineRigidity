@@ -51,3 +51,17 @@ a separate review.
   sublemmas used by the resultant step, not the propagation lemma itself.
 
 Both are included in the axiom audit. The entire new proof chain remains open.
+
+## Degree-one resultant (next audit target)
+
+The new `linearResultant_bound` states, for integers `a,b,c,d` with
+`ad-bc\ne0` and every real `y`:
+
+```math
+1\le |ay+b|\,|c|+|cy+d|\,|a|.
+```
+
+It is the degree-one instance of Lemma 4.2, proved from the integral
+cross-determinant and the triangle inequality. **The arbitrary-degree
+Sylvester resultant estimate remains open.** This addition is submitted
+for a fresh Lean build and axiom audit.

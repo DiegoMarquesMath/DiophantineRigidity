@@ -18,3 +18,5 @@ for the new global theorems.
 #print axioms DiophantineRigidity.fieldMultiplication_radical_eq_zero
 #print axioms DiophantineRigidity.propagation_loss_identity
 #print axioms DiophantineRigidity.resultant_degree_margin
+
+#print axioms DiophantineRigidity.linearResultant_bound
