@@ -44,16 +44,12 @@ theorem sylvester_entries_abs_le
   intro i j
   refine Fin.addCases ?_ ?_ j
   · intro j
-    change
-      |(if (i : ℕ) ∈ Set.Icc (j : ℕ) ((j : ℕ) + D)
-        then A.coeff ((i : ℕ) - j) else 0)| ≤ H
+    simp only [Polynomial.sylvester, Matrix.of_apply, Fin.addCases_left]
     split_ifs
     · exact hA _
     · simpa using hH
   · intro j
-    change
-      |(if (i : ℕ) ∈ Set.Icc (j : ℕ) ((j : ℕ) + e)
-        then W.coeff ((i : ℕ) - j) else 0)| ≤ H
+    simp only [Polynomial.sylvester, Matrix.of_apply, Fin.addCases_right]
     split_ifs
     · exact hW _
     · simpa using hH
