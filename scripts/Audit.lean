@@ -84,3 +84,8 @@ for the new global theorems.
 #print axioms DiophantineRigidity.resultant_integer_ne_zero_of_complex
 #print axioms DiophantineRigidity.HasPolynomialWitness.mono_degree
 #print axioms DiophantineRigidity.exceptionalArguments_mono_degree
+#print axioms DiophantineRigidity.exists_selected_integer_nonzero_resultant
+#print axioms DiophantineRigidity.exists_selected_integer_nonzero_resultant_with_height
+#print axioms DiophantineRigidity.selectedIntegerCombination_natDegree_le
+#print axioms DiophantineRigidity.exists_selected_integer_nonzero_resultant_from_degrees
+#print axioms DiophantineRigidity.exists_selected_bounded_integral_bezout

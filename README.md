@@ -1,120 +1,230 @@
-# DiophantineRigidity
+# Diophantine Rigidity of Analytic Graphs
 
-**Machine-checked foundations for Diophantine rigidity of analytic graphs**  
-Lean 4.24.0 · mathlib v4.24.0 · independent repository · research formalization in progress
-
-[![Lean CI](https://github.com/DiegoMarquesMath/DiophantineRigidity/actions/workflows/lean.yml/badge.svg)](https://github.com/DiegoMarquesMath/DiophantineRigidity/actions/workflows/lean.yml)
-[![Lean](https://img.shields.io/badge/Lean-4.24.0-273B5C)](https://lean-lang.org/)
+[![Lean verification](https://github.com/DiegoMarquesMath/DiophantineRigidity/actions/workflows/lean.yml/badge.svg?branch=main)](https://github.com/DiegoMarquesMath/DiophantineRigidity/actions/workflows/lean.yml)
+[![Lean 4](https://img.shields.io/badge/Lean-4.24.0-273B5C)](https://lean-lang.org/)
 [![mathlib](https://img.shields.io/badge/mathlib-v4.24.0-485D70)](https://github.com/leanprover-community/mathlib4)
 
-*A formal verification project accompanying Diego Marques's manuscript, **Diophantine Rigidity of Analytic Graphs**.*
+Lean 4 formalization accompanying Diego Marques's manuscript
+*Diophantine Rigidity of Analytic Graphs*.
 
-> [!IMPORTANT]
-> **Current status: substantial arithmetic and algebraic infrastructure has been formalized; the new principal theorems are not yet machine-certified.** In particular, the arbitrary-degree two-height counting theorem, all-degree S-number Cantor theorem, full projective-content estimate, multiscale propagation and arithmetic descent remain open formalization obligations. A green CI check proves only the exact declarations compiled and audited in that commit.
+This project develops the arithmetic and analytic infrastructure for a uniform
+two-height counting theorem on real-analytic graphs. Its mathematical program
+also concerns simultaneous Mahler-exponent bounds on Cantor sets of Liouville
+numbers and arithmetic descent.
 
-## The mathematical goal
+> **Verification status.** The arithmetic, coprimality, projective-chart,
+> and Sylvester-resultant infrastructure contains machine-checked results.
+> The **new arbitrary-degree counting theorem, full projective-content
+> estimate, multiscale propagation, S-number Cantor theorem, and arithmetic
+> descent are not yet proved in Lean**. A successful build certifies the
+> declarations that are present, not the outstanding manuscript claims.
 
-Let $f:I\to\mathbb R$ be real analytic and transcendental over $\mathbb R(X)$. Count reduced rationals $r=p/q\in J\Subset I$, with $Q\le q<2Q$, for which there exists a nonzero integer polynomial $P\in\mathbb Z[Y]$ satisfying
+## Main mathematical objective
+
+Let $f:I\to\mathbb R$ be real analytic and transcendental over $\mathbb R(X)$,
+and let $J\Subset I$. For reduced rational arguments $r=p/q\in J$ with
+$Q\le q<2Q$, consider nonzero $P\in\mathbb Z[Y]$ such that
 
 $$
 \deg P\le m,\qquad B\le H(P)<2B,\qquad
 |P(f(r))|\le L B^{-w}.
 $$
 
-The target uniform estimate is
+The intended theorem gives, uniformly over independent source and polynomial
+height scales,
 
 $$
-N_{f,m}(Q,B,w)\ll Q^{2-\eta}
-\quad(w>2m-1,\;Q^{u_0}\le B\le Q^U),
+N_{f,m}(Q,B,w)\ll Q^{2-\eta},
+\qquad w>2m-1,\quad Q^{u_0}\le B\le Q^U.
 $$
 
-with the constants chosen before $Q$ and $B$. Exact zeros, factors, degree drops, and nonprimitive witnesses are not discarded.
+The constants must be chosen before $Q$ and $B$. Exact zeros, reducible
+witnesses and degree drops are retained.
 
-The manuscript's target consequences are a single Cantor set of Liouville arguments whose images have simultaneously controlled Mahler exponents (and irrationality exponent $2$), arithmetic descent for algebraic analytic branches, and a new route to entire-function rigidity in Mahler's problem.
+A further target is one Cantor set $K$ of Liouville numbers in every open
+subinterval, with
 
-**These targets are not assertions of already completed Lean proofs.**
+$$
+f(\xi)\text{ transcendental},\qquad
+\mu(f(\xi))=2,\qquad
+w_m(f(\xi))\le 2m-1\quad(m\ge1)
+$$
 
-## What is already present in the integration branch
+simultaneously for every $\xi\in K$. **This is not yet a verified theorem
+of this new project.**
 
-The code accumulated across the previously separate proof PRs is brought together here rather than treated as new work. The formalized components include:
+## Verified supporting results
 
-| Area | Lean modules | Scope |
-|---|---|---|
-| Rational blocks and witness arithmetic | `Witnesses`, `WitnessMonotonicity`, `FareyBounds`, `ArithmeticSpecialization` | Finite rational sets, degree-monotone witnesses, denominator-cleared evaluations and Farey bounds |
-| Integral polynomial infrastructure | `IntegerContent`, `BivariateSpecialization`, `TwoChartDivisibility` | Coefficient content, integer specializations, elementary two-chart divisibility |
-| Reconstruction preliminaries | `HankelPairing`, `PropagationExponents` | Field pairing and numerical exponent identities, **not** full Hankel reconstruction or propagation |
-| Bézout and projective bridge | `BezoutCertificates`, `ProjectiveBezoutBridge`, `ProjectiveReciprocity` | Conditional Bézout identities, denominator clearing, reflection and content divisibility |
-| Root avoidance and coprimality | `BoundedRootAvoidance`, `PolynomialRootAvoidance`, `SelectedCombination`, `SelectedIntegerCombination`, `ComplexCoprimality`, `RationalCoefficientCoprimality` | Bounded parameter selection and elimination of pointwise common-root hypotheses under explicit coprimality assumptions |
-| Sylvester theory | `LinearResultant`, `SylvesterKernel`, `SylvesterCertificates`, `SylvesterHeightBound`, `ResultantBaseChange` | Integral certificates, determinant bounds, exact-degree nonvanishing and base change |
-| Proven legacy results | `LegacyBridge` and pinned `MahlerLean` dependency | Rational spacing and an earlier *independent* entire-rigidity proof; does not substitute for the new counting route |
+### Arithmetic foundations
 
-Declarations in these modules have exact Lean statements. They are not automatically the full manuscript lemmas bearing related names.
+[Witnesses.lean](DiophantineRigidity/Witnesses.lean) defines exact
+polynomial small-value witnesses and exceptional rational arguments;
+[WitnessMonotonicity.lean](DiophantineRigidity/WitnessMonotonicity.lean)
+proves degree monotonicity.
+[FareyBounds.lean](DiophantineRigidity/FareyBounds.lean) and
+[ArithmeticSpecialization.lean](DiophantineRigidity/ArithmeticSpecialization.lean)
+provide rational-block estimates and denominator-cleared specializations.
+[IntegerContent.lean](DiophantineRigidity/IntegerContent.lean) develops the
+coefficient-gcd interface.
 
-## Verification provenance
+### Projective-chart arithmetic
 
-The project was initially bootstrapped on `main` at `b342c9bf`. Research code was developed in multiple PR branches, so inspecting only `main` seriously understates progress.
+[BivariateSpecialization.lean](DiophantineRigidity/BivariateSpecialization.lean),
+[TwoChartDivisibility.lean](DiophantineRigidity/TwoChartDivisibility.lean),
+[ProjectiveBezoutBridge.lean](DiophantineRigidity/ProjectiveBezoutBridge.lean)
+and [ProjectiveReciprocity.lean](DiophantineRigidity/ProjectiveReciprocity.lean)
+verify exact specialization and reciprocal-chart identities. Under two
+supplied integral Bézout certificates they derive
 
-- [PR #10 — nominal-degree Sylvester resultant](https://github.com/DiegoMarquesMath/DiophantineRigidity/pull/10), commit `84f8fc5041899d20a7e9aa8f588d808e881e1f1d`: [successful CI](https://github.com/DiegoMarquesMath/DiophantineRigidity/actions/runs/41851694299). This branch contains the accumulated arithmetic/projective/root-avoidance stack.
-- [PR #9 — coprimality over rational coefficient polynomials](https://github.com/DiegoMarquesMath/DiophantineRigidity/pull/9), commit `1738c9db83820b1c19a9913cffcc9a2867e5f402`: [successful CI](https://github.com/DiegoMarquesMath/DiophantineRigidity/actions/runs/41850220738).
-- [PR #11 — integral-to-complex resultant base change](https://github.com/DiegoMarquesMath/DiophantineRigidity/pull/11), commit `6e6dd5e7487e7971f0f5c1646f0eb33f143910ce`: [successful CI](https://github.com/DiegoMarquesMath/DiophantineRigidity/actions/runs/41852264160).
-- [PR #12 — witness monotonicity](https://github.com/DiegoMarquesMath/DiophantineRigidity/pull/12): added to this integration branch; independent CI certification is required.
-- [MahlerLean](https://github.com/DiegoMarquesMath/MahlerLean) is a separate project, included as a fixed Git dependency; [its analytic-graphs PR #4](https://github.com/DiegoMarquesMath/MahlerLean/pull/4) is a scaffold and statement mapping, **not** an additional proof of the new main theorem.
+$$
+\operatorname{cont}(q^D F(p/q,Y))\mid |K_1K_2|.
+$$
 
-**The combined integration commit needs its own green CI run**; separate successes do not logically imply compilation after combination. No proprietary/local manuscript or uncommitted files are published here.
+The hypotheses on the certificate constants are explicit: this is not the
+full uniform $p$-adic counting estimate.
 
-## Formalization plan
+### Polynomial selection and coprimality
 
-| Gate | Objective | Current assessment |
-|---|---|---|
-| 01 | Exact revised source, source hash and statement map | Partial; the revised TeX remains local |
-| 02 | Arithmetic and integer polynomial foundations | Substantial verified branch-level work; source-fidelity audit incomplete |
-| 03 | Finite algebraic type and uniform jets | Open in this project |
-| 04 | Local determinant relations | Open |
-| 05 | Hankel reconstruction | Pairing proved; main reconstruction open |
-| 06 | Projective content | Several Bézout and chart sublemmas proved; full estimate open |
-| 07 | Integral resultants | Significant Sylvester results proved; full manuscript lemma open |
-| 08 | Uniform multiscale propagation | Exponent identities proved; propagation open |
-| 09 | Arbitrary-degree two-height counting | Open |
-| 10 | Simultaneous Cantor and S-numbers | Open (legacy Cantor theorem is a different statement) |
-| 11 | Arithmetic descent | Open |
-| 12 | Full proof, source and axiom certification | Open |
+[BoundedRootAvoidance.lean](DiophantineRigidity/BoundedRootAvoidance.lean),
+[SelectedIntegerCombination.lean](DiophantineRigidity/SelectedIntegerCombination.lean),
+[ComplexCoprimality.lean](DiophantineRigidity/ComplexCoprimality.lean), and
+[RationalCoefficientCoprimality.lean](DiophantineRigidity/RationalCoefficientCoprimality.lean)
+control the choice of an integral auxiliary polynomial
 
-See [detailed status](docs/STATUS.md), [formalization plan](docs/FORMALIZATION_PLAN.md), [proof contracts](docs/PROOF_CONTRACTS.md) and [verification standards](docs/VERIFICATION.md).
+$$
+W_t(X)=\sum_{j=0}^{k}t^j V_j(X),\qquad 0\le t\le kD,
+$$
 
-## Dependency and proof architecture
+including the coefficient-height bound
 
-```mermaid
-flowchart TD
-    A["Arithmetic heights and rational blocks"] --> B["Local relations and integral kernels"]
-    C["Finite algebraic type"] --> B
-    B --> D["Hankel reconstruction"]
-    E["Bézout / two-chart contents"] --> F["Uniform projective estimate"]
-    G["Sylvester resultants / coprimality"] --> F
-    D --> H["Same-polynomial multiscale propagation"]
-    F --> H
-    H --> I["Two-height counting"]
-    C --> I
-    I --> J["Cantor / simultaneous S-number bounds"]
-    H --> K["Arithmetic descent"]
-```
+$$
+H(W_t)\le (k+1)(kD+1)^k H
+$$
 
-## Reproduce the proof audit
+under explicit degree and coefficient-coprimality assumptions.
 
-```bash
+### Integral Sylvester resultants and effective Bézout certificates
+
+[SylvesterKernel.lean](DiophantineRigidity/SylvesterKernel.lean),
+[SylvesterCertificates.lean](DiophantineRigidity/SylvesterCertificates.lean),
+[SylvesterHeightBound.lean](DiophantineRigidity/SylvesterHeightBound.lean)
+and [ResultantBaseChange.lean](DiophantineRigidity/ResultantBaseChange.lean)
+develop the exact-degree Sylvester map, determinant bounds, integer adjugate
+certificates, and base change to complex coefficients.
+
+The central recent bridge is
+[SelectedResultantBridge.lean](DiophantineRigidity/SelectedResultantBridge.lean).
+The declaration
+`DiophantineRigidity.exists_selected_bounded_integral_bezout`
+constructs $t,U,T,K$, with $K\ne0$, such that
+
+$$
+AU+W_tT=K,\qquad
+|K|\le (D+e)!\,M^{D+e},
+\quad M=\max\{H,(k+1)(kD+1)^kH\}.
+$$
+
+This is a quantitative **algebraic ingredient** of Lemma 4.1, not
+its final projective-content counting conclusion.
+
+### Independent legacy theorems
+
+[LegacyBridge.lean](DiophantineRigidity/LegacyBridge.lean) imports exact
+declarations from the pinned
+[MahlerLean](https://github.com/DiegoMarquesMath/MahlerLean) dependency,
+including rational spacing and the previously established entire-rigidity
+theorem. The earlier degree-one counting and Cantor arguments do **not**
+prove the new arbitrary-degree results.
+
+## Manuscript-to-Lean correspondence
+
+| Manuscript component | Current Lean source | Status |
+| --- | --- | --- |
+| Rational blocks, heights and specialization | `Witnesses`, `FareyBounds`, `ArithmeticSpecialization` | Supporting results verified |
+| Lemma 3.1 — local determinant relations | Related legacy infrastructure | Full statement open |
+| Lemma 3.2 — Hankel reconstruction | `HankelPairing` | Preliminary results only |
+| Lemma 4.1 — projective contents | `ProjectiveBezoutBridge`, `SelectedResultantBridge` | Significant algebraic progress; p-adic estimate open |
+| Lemma 4.2 — resultants | `SylvesterCertificates`, `SylvesterHeightBound`, `ResultantBaseChange` | Supporting results verified; final statement comparison pending |
+| Lemma 5.1 — multiscale propagation | `PropagationExponents` | Exponent groundwork only |
+| Arbitrary-degree two-height counting | No complete declaration | Open |
+| Simultaneous Cantor/S-number theorem | No complete declaration | Open |
+| Arithmetic descent | No complete declaration | Open |
+| Entire-function rigidity via new counting route | `entireRigidityFromLegacy` proves an older route | New derivation open |
+
+Final manuscript-to-Lean comparison requires the exact revised manuscript,
+which is deliberately excluded from this public repository.
+
+## Proof architecture
+
+| Step | Role |
+| --- | --- |
+| Farey bounds and heights | Control rational arguments and independent polynomial heights |
+| Finite algebraic type | Provide uniform analytic nondegeneracy |
+| Local determinants | Produce integral relations |
+| Hankel recovery | Reconstruct a single primitive polynomial |
+| Projective contents and resultants | Control arithmetic specializations and coefficient growth |
+| Multiscale propagation | Preserve the **same** reconstructed polynomial across scales |
+| Two-height counting | Obtain a power saving in the rational count |
+| Cantor and S-numbers | Impose every approximation-degree constraint on one set |
+| Arithmetic descent | Recover rational defining equations from dense specializations |
+
+See the [twelve-gate plan](docs/FORMALIZATION_PLAN.md),
+[statement contracts](docs/PROOF_CONTRACTS.md), and
+[verification policy](docs/VERIFICATION.md).
+
+## Verification
+
+The development pins **Lean 4.24.0**, **mathlib v4.24.0**, and a fixed
+revision of MahlerLean. Reproduce the current published proofs with
+
+~~~bash
 git clone https://github.com/DiegoMarquesMath/DiophantineRigidity.git
 cd DiophantineRigidity
-git checkout integration/ath-recovered-work-20261104
 lake exe cache get
 bash scripts/check.sh
-```
+~~~
 
-The check builds the library, compiles each module, runs `scripts/Audit.lean`, and rejects `sorryAx` or unauthorized axioms. Standard logical axioms such as `propext`, `Classical.choice` and `Quot.sound` are permitted.
+The script builds the library, checks project modules with warnings as
+errors, audits principal declarations with `#print axioms` and rejects
+`sorryAx` and nonstandard research axioms. Only the standard logical
+foundations `propext`, `Classical.choice` and `Quot.sound` are allowed.
 
-**For a mathematical certification:** additionally compare every final Lean theorem type with the exact TeX statement, including quantifier order, all uniform constants and endpoint cases. Record the verified commit SHA and the CI run; never cite only a moving branch.
+**Verified proof checkpoint:** commit
+[`5e563e74d0cf8aa72913cf918faf006e1ef41df5`](https://github.com/DiegoMarquesMath/DiophantineRigidity/tree/5e563e74d0cf8aa72913cf918faf006e1ef41df5);
+[GitHub Actions run 41879338537 — success](https://github.com/DiegoMarquesMath/DiophantineRigidity/actions/runs/41879338537).
 
-## Continuity and publication
+The checkpoint certifies the exact Lean declarations in that commit,
+**not** the research theorems listed above as open. Read
+[VALIDATION.md](VALIDATION.md) for verification scope and provenance.
 
-The [integration record](docs/INTEGRATION_2026-11-04.md) identifies which PR branches were carried forward and what remains outside public GitHub. Future work should branch from the integrated code, not recreate previously audited sublemmas. The authoritative revised manuscript is deliberately excluded from Git by the `paper/` policy.
+## Repository structure
 
-Maintainer: **Diego Marques**, Department of Mathematics, Universidade de Brasília.  
-*Precise claims. Reproducible proofs. Explicit remaining obligations.*
+| Path | Purpose |
+| --- | --- |
+| [DiophantineRigidity/](DiophantineRigidity/) | Lean source modules |
+| [scripts/check.sh](scripts/check.sh) | Reproducible build and axiom check |
+| [scripts/Audit.lean](scripts/Audit.lean) | Audited theorem declarations |
+| [VALIDATION.md](VALIDATION.md) | Immutable CI evidence and limitations |
+| [docs/STATUS.md](docs/STATUS.md) | Precisely scoped completed, partial and open obligations |
+| [docs/FORMALIZATION_PLAN.md](docs/FORMALIZATION_PLAN.md) | Twelve reviewable proof gates |
+| [docs/INTEGRATION_2026-11-04.md](docs/INTEGRATION_2026-11-04.md) | Source-commit provenance |
+| [docs/SELECTED_RESULTANT_BEZOUT.md](docs/SELECTED_RESULTANT_BEZOUT.md) | Constructive quantitative Bézout interface |
+| [AGENTS.md](AGENTS.md) | Proof-integrity instructions for agents |
+| [CONTRIBUTING.md](CONTRIBUTING.md) | Contribution standards |
+
+## Open mathematical obligations
+
+The immediate priority is completing **Lemma 4.1**, including uniform
+$p$-adic root coverings, congruence separation and divisor sums.
+Finite algebraic type, determinant relations, Hankel reconstruction and
+same-polynomial multiscale propagation remain indispensable for the
+new counting theorem and its corollaries.
+
+## Citation and scope
+
+Cite an **exact verified commit**, not only a moving branch badge.
+The repository's [CITATION.cff](CITATION.cff) supplies software metadata;
+cite the mathematical manuscript separately.
+
+Maintained by [Diego Marques](https://github.com/DiegoMarquesMath),
+Department of Mathematics, Universidade de Brasília.

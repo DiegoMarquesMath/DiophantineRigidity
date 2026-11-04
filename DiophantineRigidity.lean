@@ -28,3 +28,4 @@ import DiophantineRigidity.SylvesterHeightBound
 import DiophantineRigidity.RationalCoefficientCoprimality
 import DiophantineRigidity.ResultantBaseChange
 import DiophantineRigidity.WitnessMonotonicity
+import DiophantineRigidity.SelectedResultantBridge
