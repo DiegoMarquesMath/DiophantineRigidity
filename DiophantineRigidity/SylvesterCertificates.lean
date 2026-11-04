@@ -207,9 +207,14 @@ theorem resultant_ne_zero_of_coprime_exact_left
     apply b₂.equivFun.injective
     simpa only [Module.Basis.equivFun_apply, map_zero] using hm.symm
   have hx : x = 0 := hinj (by simpa using hLx)
+  have heq : b₁.equivFun x = v := by
+    change b₁.equivFun (b₁.equivFun.symm v) = v
+    exact b₁.equivFun.apply_symm_apply v
   have hvzero : v = 0 := by
-    have hh := congrArg b₁.equivFun hx
-    simpa [x] using hh
+    calc
+      v = b₁.equivFun x := heq.symm
+      _ = b₁.equivFun 0 := congrArg b₁.equivFun hx
+      _ = 0 := map_zero _
   exact hv hvzero
 
 end DiophantineRigidity
