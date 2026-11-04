@@ -69,8 +69,9 @@ theorem coprime_moduli_mul_dvd_cross
     simpa using (Int.natAbs_dvd_natAbs).mpr hb
   have hN : a * b ∣ z.natAbs :=
     hcop.mul_dvd_of_dvd_of_dvd haN hbN
-  rw [← Int.natAbs_dvd_natAbs]
-  simpa using hN
+  have hN' : (((a * b : ℕ) : ℤ).natAbs) ∣ z.natAbs := by
+    simpa using hN
+  exact (Int.natAbs_dvd_natAbs).mp hN'
 
 /-- Two coprime prime-power congruence conditions combine
 into one strengthened separation inequality. -/
