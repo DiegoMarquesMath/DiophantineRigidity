@@ -42,15 +42,17 @@ private def sylvesterLinear
     refine (degree_add_le _ _).trans_lt (max_lt ?_ ?_)
     · by_cases hf0 : f = 0
       · simp [hf0]
+        exact ⟨WithBot.bot_lt_coe n, WithBot.bot_lt_coe m⟩
       exact (degree_mul_le _ _).trans_lt
         ((WithBot.add_lt_add_of_le_of_lt (by simpa)
-          (degree_le_of_natDegree_le hf) (by simpa using hu)).trans_eq
+          (degree_le_of_natDegree_le hf) ((Polynomial.mem_degreeLT).mp hu)).trans_eq
           (add_comm _ _))
     · by_cases hg0 : g = 0
       · simp [hg0]
+        exact ⟨WithBot.bot_lt_coe n, WithBot.bot_lt_coe m⟩
       exact (degree_mul_le _ _).trans_lt
         (WithBot.add_lt_add_of_le_of_lt (by simpa)
-          (degree_le_of_natDegree_le hg) (by simpa using hv))⟩
+          (degree_le_of_natDegree_le hg) ((Polynomial.mem_degreeLT).mp hv))⟩
   map_add' _ _ := by ext1; dsimp; ring
   map_smul' _ _ := by ext1; simp
 
@@ -122,7 +124,7 @@ theorem exists_integral_sylvester_certificate
   let e : (ℤ[X]_(n + m)) :=
     ⟨1, by
       simpa [Polynomial.mem_degreeLT, ← Nat.cast_add, Nat.pos_iff_ne_zero,
-        not_and_or, -not_and] using hsize⟩
+        not_and_or, -not_and] using hsize.symm⟩
   let uv := adjSylvesterLinear f g m n e
   have hproof :
       ((sylvesterLinear f g hf hg uv)).1 =
@@ -132,9 +134,9 @@ theorem exists_integral_sylvester_certificate
       (sylvesterLinear_comp_adj f g hf hg)
     simpa [LinearMap.comp_apply, uv, e] using hx
   exact ⟨uv.1, uv.2,
-    by simpa [Polynomial.mem_degreeLT] using uv.1.2,
-    by simpa [Polynomial.mem_degreeLT] using uv.2.2,
-    by simpa [sylvesterLinear, Algebra.smul_def] using hproof⟩
+    (Polynomial.mem_degreeLT).mp uv.1.2,
+    (Polynomial.mem_degreeLT).mp uv.2.2,
+    by simpa [sylvesterLinear, Algebra.smul_def, e] using hproof⟩
 
 /-- A nonzero integral Sylvester determinant yields a nonzero constant
 in a concrete integral Bezout identity. No rational/integer certificate
