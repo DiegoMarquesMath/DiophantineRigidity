@@ -58,3 +58,6 @@ for the new global theorems.
 #print axioms DiophantineRigidity.exists_selectedIntegerCombination_nonzero_on
 #print axioms DiophantineRigidity.selectedIntegerCombination_coeff_abs_le
 #print axioms DiophantineRigidity.selectedIntegerCombination_coeff_abs_le_kD
+
+#print axioms DiophantineRigidity.exists_selected_integer_avoiding_roots
+#print axioms DiophantineRigidity.exists_bounded_integer_avoiding_roots

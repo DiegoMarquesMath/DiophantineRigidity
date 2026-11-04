@@ -18,3 +18,4 @@ import DiophantineRigidity.BoundedRootAvoidance
 import DiophantineRigidity.SelectedCombination
 
 import DiophantineRigidity.SelectedIntegerCombination
+import DiophantineRigidity.PolynomialRootAvoidance
