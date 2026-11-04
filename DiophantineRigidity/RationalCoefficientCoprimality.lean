@@ -57,7 +57,7 @@ theorem noncommon_root_of_rationalCoefficientIdeal_eq_top
     simp
   have hz : ev (1 : Polynomial ℚ) = 0 :=
     (RingHom.mem_ker).mp (hle hone)
-  exact one_ne_zero (by simpa using hz : (1 : ℂ) = 0)
+  exact one_ne_zero ((map_one ev).symm.trans hz)
 
 /-- A given rational unit-ideal condition on the original integer
 coefficient polynomials implies no common complex zero. -/
