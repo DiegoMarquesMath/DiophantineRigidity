@@ -111,3 +111,5 @@ for the new global theorems.
 #print axioms DiophantineRigidity.product_prime_powers_le_modulus_pow
 #print axioms DiophantineRigidity.weighted_divisor_sum_le
 #print axioms DiophantineRigidity.divisor_sum_one
+#print axioms DiophantineRigidity.card_le_sum_over_content_divisors
+#print axioms DiophantineRigidity.card_le_sum_over_large_content_divisors
