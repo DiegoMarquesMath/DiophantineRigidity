@@ -94,3 +94,7 @@ for the new global theorems.
 #print axioms DiophantineRigidity.clearedEvaluation_zero_degree
 #print axioms DiophantineRigidity.clearedBivariate_zero_degree_eq
 #print axioms DiophantineRigidity.integerContent_eq_one_of_zero_degree_primitive
+#print axioms DiophantineRigidity.modulus_le_cross_natAbs
+#print axioms DiophantineRigidity.cross_modulus_real_separation
+#print axioms DiophantineRigidity.coprime_moduli_mul_dvd_cross
+#print axioms DiophantineRigidity.coprime_moduli_real_separation
