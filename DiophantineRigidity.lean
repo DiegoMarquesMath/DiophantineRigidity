@@ -14,3 +14,5 @@ import DiophantineRigidity.ProjectiveBezoutBridge
 import DiophantineRigidity.ProjectiveReciprocity
 
 import DiophantineRigidity.SylvesterCertificates
+
+import DiophantineRigidity.SylvesterHeightBound

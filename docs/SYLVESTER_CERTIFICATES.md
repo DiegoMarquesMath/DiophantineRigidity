@@ -27,3 +27,20 @@ and estimate the determinant by a power of H(F).
 
 **Do not report these obligations as done merely because the current
 certificate theorem compiles.** No ATH_rev manuscript files are published.
+
+## Effective determinant height (new CI checkpoint)
+
+`SylvesterHeightBound.lean` proves
+```math
+|\mathrm{Res}(A,W;D,e)| \le (D+e)!\,H^{D+e}
+```
+for integral A,W with coefficients bounded in modulus by H.
+
+Combining this with `exists_integral_sylvester_certificate`
+constructs a nonzero integral Bézout constant K with the same
+height bound, **provided** the resultant is nonzero.
+
+When e≤D and H is bounded by a constant times the coefficient
+height of F, the exponent is at most 2D. The required bounds on
+the selected W_t and nonvanishing of its resultant remain to be
+proved from the manuscript hypotheses.

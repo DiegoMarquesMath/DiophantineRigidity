@@ -44,3 +44,8 @@ for the new global theorems.
 
 #print axioms DiophantineRigidity.exists_integral_sylvester_certificate
 #print axioms DiophantineRigidity.exists_nonzero_integral_sylvester_certificate
+
+#print axioms DiophantineRigidity.integer_matrix_det_abs_le
+#print axioms DiophantineRigidity.sylvester_entries_abs_le
+#print axioms DiophantineRigidity.sylvester_resultant_abs_le
+#print axioms DiophantineRigidity.exists_bounded_integral_sylvester_certificate
