@@ -74,3 +74,13 @@ for the new global theorems.
 #print axioms DiophantineRigidity.sylvester_resultant_abs_le
 #print axioms DiophantineRigidity.exists_bounded_integral_sylvester_certificate
 #print axioms DiophantineRigidity.resultant_ne_zero_of_coprime_exact_left
+
+-- Recovered and integrated from separately CI-validated proof branches.
+#print axioms DiophantineRigidity.noncommon_root_of_rationalCoefficientIdeal_eq_top
+#print axioms DiophantineRigidity.noncommon_root_integer_of_rationalCoefficientIdeal_eq_top
+#print axioms DiophantineRigidity.exists_selected_integer_coprime_of_rationalCoefficientIdeal
+#print axioms DiophantineRigidity.sylvester_integer_to_complex
+#print axioms DiophantineRigidity.resultant_integer_to_complex
+#print axioms DiophantineRigidity.resultant_integer_ne_zero_of_complex
+#print axioms DiophantineRigidity.HasPolynomialWitness.mono_degree
+#print axioms DiophantineRigidity.exceptionalArguments_mono_degree
