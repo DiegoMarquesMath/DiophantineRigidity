@@ -35,3 +35,4 @@ import DiophantineRigidity.ModularFareyPacking
 import DiophantineRigidity.LinearChartCongruence
 import DiophantineRigidity.PrimeResidueCover
 import DiophantineRigidity.PrimePowerModulusGrowth
+import DiophantineRigidity.WeightedDivisorSum
