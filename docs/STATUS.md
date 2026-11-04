@@ -1,6 +1,6 @@
 # Status of formal verification — 2026-11-04
 
-**Current Lean checkpoint:** [`5e563e74d0`](https://github.com/DiegoMarquesMath/DiophantineRigidity/commit/5e563e74d0cf8aa72913cf918faf006e1ef41df5), [CI successful](https://github.com/DiegoMarquesMath/DiophantineRigidity/actions/runs/41879338537). This verifies the integrated algebraic source, including the selected bounded nonzero integral Bézout certificate, not the full manuscript Lemma 4.1. See [VALIDATION.md](../VALIDATION.md).
+**Current main-branch checkpoint:** [`b3ceac232494`](https://github.com/DiegoMarquesMath/DiophantineRigidity/commit/b3ceac232494702aa1e818c8c13198c6266e2200), [CI successful](https://github.com/DiegoMarquesMath/DiophantineRigidity/actions/runs/41886957638). This includes the integrated algebraic source and the selected bounded nonzero integral Bézout certificate; it does not prove the full manuscript Lemma 4.1. See [VALIDATION.md](../VALIDATION.md).
 
 
 > **Scope:** This status concerns the new manuscript *Diophantine Rigidity of Analytic Graphs*, not the already existing MahlerLean theorem in isolation. **No new global counting, simultaneous S-number or arithmetic descent theorem is certified yet.**
@@ -8,7 +8,7 @@
 ## Evidence hierarchy
 
 1. **Certified code at a fixed commit:** exact Lean declarations checked by successful GitHub Actions and explicit `#print axioms` output.
-2. **Integrated code:** modules present on the integration branch, requiring a fresh combined CI.
+2. **Integrated code:** source present on `main`, with successful combined CI at the exact checkpoint above. This alone does not establish manuscript-to-Lean statement equivalence.
 3. **Partial manuscript lemma:** genuine machine-checked supporting statements, but the full source-level lemma is not yet proved.
 4. **Open:** no completed exact Lean proof of the manuscript claim.
 5. **Local/unpublished:** described in prior work but not accessible here as committed source; must not be claimed verified.
@@ -30,7 +30,7 @@
 | 11 | Arithmetic descent | **Open** | Positive-density specialization to rational defining equation remains to prove |
 | 12 | Full manuscript-to-Lean audit | **Open** | Need exact source mapping, all main declarations, transitive axiom and CI certification |
 
-**No gate is recorded as fully complete.** Significant supporting results **have** been formalized and separately CI-validated. This is not a claim that no work was done.
+**No full manuscript gate is recorded as complete.** Many genuine supporting theorems are formalized, integrated on `main` and CI-validated; each gate requires additional exact-statement review.
 
 ## Previously validated source commits
 
@@ -41,7 +41,7 @@
 | Resultant base change, [PR #11](https://github.com/DiegoMarquesMath/DiophantineRigidity/pull/11) | `6e6dd5e7487e7971f0f5c1646f0eb33f143910ce` | [success](https://github.com/DiegoMarquesMath/DiophantineRigidity/actions/runs/41852264160) |
 | Degree monotonicity, [PR #12](https://github.com/DiegoMarquesMath/DiophantineRigidity/pull/12) | `0a6d19bd302241a8c7b6b089db70c173d9e6fc57` | [success](https://github.com/DiegoMarquesMath/DiophantineRigidity/actions/runs/41862008608) |
 
-These runs prove their own codebases, not necessarily the combined branch. The integration branch explicitly imports and audits all recovered modules.
+These runs certify their respective commits. The recovered modules have now also been integrated into `main`: [PR #13](https://github.com/DiegoMarquesMath/DiophantineRigidity/pull/13) and [PR #14](https://github.com/DiegoMarquesMath/DiophantineRigidity/pull/14) were merged, and the combined `main` passed [CI run 41886957638](https://github.com/DiegoMarquesMath/DiophantineRigidity/actions/runs/41886957638).
 
 ## Priority now
 
@@ -49,6 +49,6 @@ These runs prove their own codebases, not necessarily the combined branch. The i
 2. Compare the exact revised manuscript Lemmas 3.1, 3.2, 4.1, 4.2 and 5.1 with Lean interfaces.
 3. Complete the uniform polynomial-selection / projective-content argument, including p-adic covers and divisor sums, without inserting theorem-equivalent hypotheses.
 4. Prove multiscale propagation of one fixed reconstructed polynomial; then the counting theorem, simultaneous Cantor theorem and arithmetic descent.
-5. Do not merge or declare full verification before the combined source has a green reproducible build and axiom audit.
+5. For future proof changes, require a successful CI run, axiom audit and exact-statement comparison before claiming a manuscript lemma complete.
 
 **Local-only work:** the Mac folder `~/Developer/MahlerLeanATH` and any uncommitted results cannot be inspected from GitHub. There is no truthful way to declare those files incorporated until their bytes are supplied or published.
