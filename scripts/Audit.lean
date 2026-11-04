@@ -1,6 +1,35 @@
 import DiophantineRigidity
 
--- Only declarations actually implemented are audited at this checkpoint.
+/-!
+The following declarations are real checked results, not placeholders
+for the new global theorems.
+-/
+
 #print axioms DiophantineRigidity.mem_exceptionalArguments
 #print axioms DiophantineRigidity.reducedRationalSpacing
 #print axioms DiophantineRigidity.entireRigidityFromLegacy
+#print axioms DiophantineRigidity.farey_interval_bound
+#print axioms DiophantineRigidity.farey_union_bound
+#print axioms DiophantineRigidity.clearedEvaluation_spec
+#print axioms DiophantineRigidity.exists_integer_cleared_evaluation
+#print axioms DiophantineRigidity.exists_integer_cleared_coefficient
+
+#print axioms DiophantineRigidity.fieldMultiplication_nondegenerate
+#print axioms DiophantineRigidity.fieldMultiplication_radical_eq_zero
+#print axioms DiophantineRigidity.propagation_loss_identity
+#print axioms DiophantineRigidity.resultant_degree_margin
+
+#print axioms DiophantineRigidity.linearResultant_bound
+
+#print axioms DiophantineRigidity.integerContent_dvd_coeff
+#print axioms DiophantineRigidity.dvd_integerContent_iff
+#print axioms DiophantineRigidity.twoChart_dvd_constant
+#print axioms DiophantineRigidity.integerContent_dvd_constant_of_twoCharts
+#print axioms DiophantineRigidity.clearedBivariate_coeff
+#print axioms DiophantineRigidity.clearedBivariate_coeff_spec
+#print axioms DiophantineRigidity.clearedBivariate_ne_zero_of_coefficient
+
+#print axioms DiophantineRigidity.integerContent_eq_zero_iff
+#print axioms DiophantineRigidity.integerContent_pos_of_ne_zero
+#print axioms DiophantineRigidity.clearedBivariate_degree_le
+#print axioms DiophantineRigidity.clearedBivariate_natDegree_le
