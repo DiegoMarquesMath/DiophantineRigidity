@@ -64,3 +64,7 @@ for the new global theorems.
 
 #print axioms DiophantineRigidity.complex_isCoprime_of_no_common_root
 #print axioms DiophantineRigidity.exists_selected_integer_coprime_complex
+
+#print axioms DiophantineRigidity.noncommon_root_of_rationalCoefficientIdeal_eq_top
+#print axioms DiophantineRigidity.noncommon_root_integer_of_rationalCoefficientIdeal_eq_top
+#print axioms DiophantineRigidity.exists_selected_integer_coprime_of_rationalCoefficientIdeal
