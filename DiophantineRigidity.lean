@@ -19,3 +19,4 @@ import DiophantineRigidity.SelectedCombination
 
 import DiophantineRigidity.SelectedIntegerCombination
 import DiophantineRigidity.PolynomialRootAvoidance
+import DiophantineRigidity.ComplexCoprimality

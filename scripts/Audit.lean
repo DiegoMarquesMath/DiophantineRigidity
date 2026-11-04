@@ -61,3 +61,6 @@ for the new global theorems.
 
 #print axioms DiophantineRigidity.exists_selected_integer_avoiding_roots
 #print axioms DiophantineRigidity.exists_bounded_integer_avoiding_roots
+
+#print axioms DiophantineRigidity.complex_isCoprime_of_no_common_root
+#print axioms DiophantineRigidity.exists_selected_integer_coprime_complex
