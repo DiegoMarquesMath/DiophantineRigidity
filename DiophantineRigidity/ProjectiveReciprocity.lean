@@ -61,7 +61,6 @@ theorem clearedEvaluation_reflect
     rw [invOf_eq_inv]
     dsimp [x]
     field_simp [hpR, hqR]
-    ring
   have hvalue :
       (q : ℝ) ^ D * P.eval₂ (Int.castRingHom ℝ) x =
         (p : ℝ) ^ D *
@@ -100,7 +99,7 @@ def reflectedBivariate (F : Polynomial (Polynomial ℤ)) (D : ℕ) :
         by_contra hn
         have hz : F.coeff j = 0 :=
           Polynomial.notMem_support_iff.mp hn
-        exact hj (by simp [hz]))
+        exact hj (by simp [hz])))
 
 /-- The reflected Y-coefficients are exactly the reflected X-polynomials. -/
 theorem reflectedBivariate_coeff
