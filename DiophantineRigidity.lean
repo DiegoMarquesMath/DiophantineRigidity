@@ -8,3 +8,4 @@ import DiophantineRigidity.LinearResultant
 import DiophantineRigidity.IntegerContent
 import DiophantineRigidity.TwoChartDivisibility
 import DiophantineRigidity.BivariateSpecialization
+import DiophantineRigidity.BezoutCertificates

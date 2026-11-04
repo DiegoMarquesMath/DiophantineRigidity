@@ -28,3 +28,6 @@ for the new global theorems.
 #print axioms DiophantineRigidity.clearedBivariate_coeff
 #print axioms DiophantineRigidity.clearedBivariate_coeff_spec
 #print axioms DiophantineRigidity.clearedBivariate_ne_zero_of_coefficient
+
+#print axioms DiophantineRigidity.nonzero_coefficient_of_bezout_certificate
+#print axioms DiophantineRigidity.clearedBivariate_ne_zero_of_bezout

@@ -40,3 +40,13 @@ audit before any declaration is marked verified.
 
 Crucially, neither polynomial Bezout certificates nor the full
 projective-content counting estimate of Lemma 4.1 are established here.
+
+## Bezout nonvanishing checkpoint (awaiting new CI)
+
+The next module `BezoutCertificates.lean` proves that a **given**
+integral Bezout certificate with nonzero constant excludes common zeros
+at every real point, and consequently excludes zero specialization of
+`clearedBivariate` at rational points. This proof still **assumes** the
+certificate; constructing it and bounding its height from coprimality is
+a separate task of Lemma 4.1. The latest proven basis is the green
+[CI checkpoint at b3e0d8a](https://github.com/DiegoMarquesMath/DiophantineRigidity/actions/runs/41780993947).
