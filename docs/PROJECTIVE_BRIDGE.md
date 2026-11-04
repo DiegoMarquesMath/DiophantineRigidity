@@ -43,3 +43,22 @@ The decisive missing steps are:
 
 This development is checked in a separate PR and must not be described
 as the full projective-content lemma until all four obligations pass.
+
+## Reciprocal chart (Lean CI pending)
+
+New `ProjectiveReciprocity.lean` uses mathlib's `Polynomial.reflect D`
+to prove equality of the two integer specializations after interchanging
+p and q, for p,q nonzero. It then derives an actual content divisibility
+
+\[
+g(p/q)\mid |K_1K_2|,
+\]
+
+**conditionally on the two integral Bezout certificates** (and their
+degree bounds), with no hidden assumption that their constants are equal.
+
+The case p=0 is deliberately reserved as one exceptional reduced argument,
+which can be absorbed into the additive constant of Lemma 4.1.
+
+Quantitative construction of K₁,K₂ and the nonarchimedean root covering
+are still required for the full Lemma 4.1 estimate.

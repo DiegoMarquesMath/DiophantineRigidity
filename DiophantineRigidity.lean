@@ -11,3 +11,4 @@ import DiophantineRigidity.BivariateSpecialization
 import DiophantineRigidity.BezoutCertificates
 
 import DiophantineRigidity.ProjectiveBezoutBridge
+import DiophantineRigidity.ProjectiveReciprocity

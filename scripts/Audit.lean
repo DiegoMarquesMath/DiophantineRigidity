@@ -35,3 +35,9 @@ for the new global theorems.
 #print axioms DiophantineRigidity.clearedBezout_sum_identity
 #print axioms DiophantineRigidity.integerContent_dvd_Bezout_chart
 #print axioms DiophantineRigidity.twoChart_dvd_product
+
+#print axioms DiophantineRigidity.reflect_natDegree_le
+#print axioms DiophantineRigidity.clearedEvaluation_reflect
+#print axioms DiophantineRigidity.reflectedBivariate_coeff
+#print axioms DiophantineRigidity.clearedBivariate_reflection
+#print axioms DiophantineRigidity.integerContent_dvd_product_of_two_Bezout_charts
