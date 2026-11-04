@@ -94,7 +94,8 @@ theorem linear_family_dvd_cross_of_integer_certificate
       dvd_mul_of_dvd_right ha (u j)
     have h₂ : M ∣ (v j) * (b j * z) :=
       dvd_mul_of_dvd_right hb (v j)
-    convert dvd_add h₁ h₂ using 1 <;> ring
+    convert dvd_add h₁ h₂ using 1
+    ring
   have hfactor : (∑ j ∈ s, (u j * a j + v j * b j) * z) =
       (∑ j ∈ s, (u j * a j + v j * b j)) * z := by
     rw [Finset.sum_mul]
