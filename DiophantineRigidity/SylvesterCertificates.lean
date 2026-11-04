@@ -198,14 +198,14 @@ theorem resultant_ne_zero_of_coprime_exact_left
   obtain ⟨v, hv, hmul⟩ :=
     (Matrix.exists_mulVec_eq_zero_iff).mpr hdet'
   let x : ℂ[X]_e × ℂ[X]_D := b₁.equivFun.symm v
-  have hrepr : (fun i => b₁.repr x i) = v := by
-    simpa only [Basis.equivFun_apply] using
+  have hrepr : (b₁.repr x : Fin (e + D) → ℂ) = v := by
+    simpa only [Module.Basis.equivFun_apply] using
       (b₁.equivFun.apply_symm_apply v)
   have hm := LinearMap.toMatrix_mulVec_repr b₁ b₂ L x
   rw [hrepr, hmul] at hm
   have hLx : L x = 0 := by
     apply b₂.equivFun.injective
-    simpa only [Basis.equivFun_apply, map_zero] using hm.symm
+    simpa only [Module.Basis.equivFun_apply, map_zero] using hm.symm
   have hx : x = 0 := hinj (by simpa using hLx)
   have hvzero : v = 0 := by
     have hh := congrArg b₁.equivFun hx
