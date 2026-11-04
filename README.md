@@ -14,19 +14,23 @@ Lean 4.24.0 · mathlib v4.24.0 · independent repository · research formalizati
 
 ## The mathematical goal
 
-Let (f:I\to\mathbb R) be real analytic and transcendental over (\mathbb R(X)). Count reduced rationals (r=p/q\in J\Subset I), (Q\le q<2Q), for which there exists a nonzero integer polynomial (P\in\mathbb Z[Y]) satisfying
-[
+Let $f:I\to\mathbb R$ be real analytic and transcendental over $\mathbb R(X)$. Count reduced rationals $r=p/q\in J\Subset I$, with $Q\le q<2Q$, for which there exists a nonzero integer polynomial $P\in\mathbb Z[Y]$ satisfying
+
+$$
 \deg P\le m,\qquad B\le H(P)<2B,\qquad
 |P(f(r))|\le L B^{-w}.
-]
+$$
+
 The target uniform estimate is
-[
+
+$$
 N_{f,m}(Q,B,w)\ll Q^{2-\eta}
 \quad(w>2m-1,\;Q^{u_0}\le B\le Q^U),
-]
-with the constants chosen before (Q) and (B). Exact zeros, factors, degree drops, and nonprimitive witnesses are not discarded.
+$$
 
-The manuscript's target consequences are a single Cantor set of Liouville arguments whose images have simultaneously controlled Mahler exponents (and irrationality exponent (2)), arithmetic descent for algebraic analytic branches, and a new route to entire-function rigidity in Mahler's problem.
+with the constants chosen before $Q$ and $B$. Exact zeros, factors, degree drops, and nonprimitive witnesses are not discarded.
+
+The manuscript's target consequences are a single Cantor set of Liouville arguments whose images have simultaneously controlled Mahler exponents (and irrationality exponent $2$), arithmetic descent for algebraic analytic branches, and a new route to entire-function rigidity in Mahler's problem.
 
 **These targets are not assertions of already completed Lean proofs.**
 
