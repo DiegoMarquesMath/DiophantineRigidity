@@ -31,3 +31,7 @@ for the new global theorems.
 
 #print axioms DiophantineRigidity.nonzero_coefficient_of_bezout_certificate
 #print axioms DiophantineRigidity.clearedBivariate_ne_zero_of_bezout
+
+#print axioms DiophantineRigidity.clearedBezout_sum_identity
+#print axioms DiophantineRigidity.integerContent_dvd_Bezout_chart
+#print axioms DiophantineRigidity.twoChart_dvd_product
