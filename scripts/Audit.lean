@@ -64,3 +64,6 @@ for the new global theorems.
 
 #print axioms DiophantineRigidity.complex_isCoprime_of_no_common_root
 #print axioms DiophantineRigidity.exists_selected_integer_coprime_complex
+
+#print axioms DiophantineRigidity.sylvester_kernel_zero_of_coprime
+#print axioms DiophantineRigidity.exists_selected_integer_sylvester_kernel_zero
