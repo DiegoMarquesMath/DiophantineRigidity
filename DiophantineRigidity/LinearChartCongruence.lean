@@ -48,4 +48,57 @@ theorem linear_chart_dvd_cross
     a b p q p' q' M h₁ h₂
   exact Int.dvd_of_dvd_mul_right_of_gcd_one h hunit
 
+
+/-- Elimination of the leading coefficient instead of the constant
+coefficient. Together with the preceding theorem, this gives
+divisibility by every coefficient of a linear polynomial. -/
+theorem linear_chart_dvd_constant_cross
+    (a b p q p' q' M : ℤ)
+    (h₁ : M ∣ a * p + b * q)
+    (h₂ : M ∣ a * p' + b * q') :
+    M ∣ b * (p * q' - p' * q) := by
+  have h := dvd_sub
+    (dvd_mul_of_dvd_left h₂ p)
+    (dvd_mul_of_dvd_left h₁ p')
+  have heq :
+      (a * p' + b * q') * p - (a * p + b * q) * p' =
+        b * (p * q' - p' * q) := by ring
+  rw [heq] at h
+  exact h
+
+/-- A primitive coefficient family with an explicit integral linear
+combination equal to one forces the full cross-determinant congruence.
+No individual coefficient needs to be invertible modulo M.
+
+This is the decisive degree-one arithmetic reduction in Lemma 4.1.
+The certificate is ordinary integer Bézout data and can be obtained
+from the primitive coefficient gcd by Euclid's algorithm. -/
+theorem linear_family_dvd_cross_of_integer_certificate
+    {ι : Type*} [DecidableEq ι] (s : Finset ι)
+    (a b u v : ι → ℤ) (p q p' q' M : ℤ)
+    (hcert : (∑ j ∈ s, (u j * a j + v j * b j)) = 1)
+    (hfirst : ∀ j ∈ s, M ∣ a j * p + b j * q)
+    (hsecond : ∀ j ∈ s, M ∣ a j * p' + b j * q') :
+    M ∣ p * q' - p' * q := by
+  let z : ℤ := p * q' - p' * q
+  have hsum : M ∣ ∑ j ∈ s, (u j * a j + v j * b j) * z := by
+    apply Finset.dvd_sum
+    intro j hj
+    have ha : M ∣ a j * z :=
+      linear_chart_dvd_coefficient_cross
+        (a j) (b j) p q p' q' M (hfirst j hj) (hsecond j hj)
+    have hb : M ∣ b j * z :=
+      linear_chart_dvd_constant_cross
+        (a j) (b j) p q p' q' M (hfirst j hj) (hsecond j hj)
+    have h₁ : M ∣ (u j) * (a j * z) :=
+      dvd_mul_of_dvd_right ha (u j)
+    have h₂ : M ∣ (v j) * (b j * z) :=
+      dvd_mul_of_dvd_right hb (v j)
+    convert dvd_add h₁ h₂ using 1 <;> ring
+  have hfactor : (∑ j ∈ s, (u j * a j + v j * b j) * z) =
+      (∑ j ∈ s, (u j * a j + v j * b j)) * z := by
+    rw [Finset.sum_mul]
+  rw [hfactor, hcert, one_mul] at hsum
+  exact hsum
+
 end DiophantineRigidity
