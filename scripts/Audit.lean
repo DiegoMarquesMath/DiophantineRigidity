@@ -44,3 +44,10 @@ for the new global theorems.
 
 #print axioms DiophantineRigidity.exists_bounded_avoiding_evaluations
 #print axioms DiophantineRigidity.exists_avoiding_with_kD_bound
+
+#print axioms DiophantineRigidity.obstructionPolynomial_coeff
+#print axioms DiophantineRigidity.obstructionPolynomial_natDegree_le
+#print axioms DiophantineRigidity.obstructionPolynomial_ne_zero
+#print axioms DiophantineRigidity.obstructionPolynomial_eval
+#print axioms DiophantineRigidity.selectedCombination_eval
+#print axioms DiophantineRigidity.exists_selectedCombination_nonzero_on

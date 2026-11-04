@@ -18,3 +18,18 @@ via root multiplicities. Then obtain W_t coprime to A.
 
 This certificate does not yet construct W_t or establish any
 height bound on its resultant. Full Lemma 4.1 remains open.
+
+## Actual selected polynomial (new CI checkpoint)
+
+`SelectedCombination.lean` builds
+`W_t(X)=Σ_{j=0}^k t^j V_j(X)` and a genuine obstruction polynomial
+`B_ρ(T)=Σ_{j=0}^k V_j(ρ)T^j`.
+
+For a set S⊂ℂ with |S|≤D and the assumption that at every
+ρ∈S some V_j(ρ)≠0, the theorem produces a **single** integer
+0≤t≤kD such that W_t(ρ)≠0 at every ρ∈S.
+
+The remaining statement-level bridge identifies S with the complex
+root set of A (degree D), verifies no common coefficient zero
+from coprimality, and proves the precise integer height estimate
+for W_t. This module is not itself the full projective-content lemma.
