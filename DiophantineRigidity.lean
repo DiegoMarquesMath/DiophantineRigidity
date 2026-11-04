@@ -36,3 +36,4 @@ import DiophantineRigidity.LinearChartCongruence
 import DiophantineRigidity.PrimeResidueCover
 import DiophantineRigidity.PrimePowerModulusGrowth
 import DiophantineRigidity.WeightedDivisorSum
+import DiophantineRigidity.FinitePadicChoiceTuples
