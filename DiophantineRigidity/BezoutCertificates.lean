@@ -34,11 +34,17 @@ theorem nonzero_coefficient_of_bezout_certificate
     intro j hj
     rw [Polynomial.eval₂_mul]
     simp [hn j hj]
-  rw [hcert] at hsum
-  have hKreal : (K : ℝ) ≠ 0 := by
+  have hvalue :
+      (Polynomial.C K : Polynomial ℤ).eval₂
+        (Int.castRingHom ℝ) x = 0 := by
+    rw [← hcert]
+    exact hsum
+  have hKzero : ((Int.castRingHom ℝ) K) = 0 := by
+    simpa only [Polynomial.eval₂_C] using hvalue
+  have hKreal : ((Int.castRingHom ℝ) K) ≠ 0 := by
+    change (K : ℝ) ≠ 0
     exact_mod_cast hK
-  apply hKreal
-  simpa using hsum
+  exact hKreal hKzero
 
 /-- An integral Bezout certificate for the Y-coefficients ensures
 that the denominator-cleared bivariate specialization is nonzero. -/
@@ -52,8 +58,10 @@ theorem clearedBivariate_ne_zero_of_bezout
     (hq : q ≠ 0) :
     clearedBivariate F p q D ≠ 0 := by
   apply clearedBivariate_ne_zero_of_coefficient F p q D hdegree hq
-  exact nonzero_coefficient_of_bezout_certificate
-    F.support (fun j => F.coeff j) U K hK hcert
-      ((p : ℝ) / (q : ℝ))
+  obtain ⟨j, _hj, hnonzero⟩ :=
+    nonzero_coefficient_of_bezout_certificate
+      F.support (fun j => F.coeff j) U K hK hcert
+        ((p : ℝ) / (q : ℝ))
+  exact ⟨j, hnonzero⟩
 
 end DiophantineRigidity
