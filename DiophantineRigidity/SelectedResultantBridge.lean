@@ -127,4 +127,55 @@ theorem exists_selected_integer_nonzero_resultant_from_degrees
   exact (Polynomial.natDegree_map_le).trans
     (selectedIntegerCombination_natDegree_le V k t e hVdeg)
 
+
+/-- From rational coefficient coprimality and uniform input heights,
+construct a nonzero integral Bezout certificate for one bounded
+selected polynomial W_t. The bound is explicit and independent
+of the selected parameter. -/
+theorem exists_selected_bounded_integral_bezout
+    (A : Polynomial ℤ) (V : ℕ → Polynomial ℤ)
+    (k D e : ℕ) (H : ℤ)
+    (hA : A.map (Int.castRingHom ℂ) ≠ 0)
+    (hD : (A.map (Int.castRingHom ℂ)).natDegree = D)
+    (hAdeg : A.natDegree ≤ D)
+    (hsize : D ≠ 0 ∨ e ≠ 0)
+    (hspan : rationalCoefficientIdeal
+      (A.map (Int.castRingHom ℚ))
+      (fun j => (V j).map (Int.castRingHom ℚ)) k = ⊤)
+    (hVdeg : ∀ j ≤ k, (V j).natDegree ≤ e)
+    (hH : 0 ≤ H)
+    (hAcoeff : ∀ i, |A.coeff i| ≤ H)
+    (hVcoeff : ∀ j ≤ k, ∀ i, |(V j).coeff i| ≤ H) :
+    ∃ (t : ℕ) (U T : Polynomial ℤ) (K : ℤ),
+      t ≤ k * D ∧ K ≠ 0 ∧
+      |K| ≤ (e + D).factorial •
+        (max H (((k + 1 : ℕ) : ℤ) *
+          (((k * D : ℕ) : ℤ) + 1) ^ k * H)) ^ (e + D) ∧
+      U.degree < (e : WithBot ℕ) ∧
+      T.degree < (D : WithBot ℕ) ∧
+      A * U + (selectedIntegerCombination V k t) * T =
+        Polynomial.C K := by
+  obtain ⟨t, ht, hres, hWcoeff⟩ :=
+    exists_selected_integer_nonzero_resultant_from_degrees
+      A V k D e H hA hD hspan hVdeg hH hVcoeff
+  let M : ℤ := max H
+    (((k + 1 : ℕ) : ℤ) *
+      (((k * D : ℕ) : ℤ) + 1) ^ k * H)
+  have hM : 0 ≤ M :=
+    le_trans hH (le_max_left _ _)
+  have hAc : ∀ i, |A.coeff i| ≤ M := by
+    intro i
+    exact (hAcoeff i).trans (le_max_left _ _)
+  have hWc : ∀ i,
+      |(selectedIntegerCombination V k t).coeff i| ≤ M := by
+    intro i
+    exact (hWcoeff i).trans (le_max_right _ _)
+  have hWd : (selectedIntegerCombination V k t).natDegree ≤ e :=
+    selectedIntegerCombination_natDegree_le V k t e hVdeg
+  obtain ⟨U, T, K, hK, hKbound, hU, hT, hcert⟩ :=
+    exists_bounded_integral_sylvester_certificate
+      A (selectedIntegerCombination V k t) D e M
+      hAdeg hWd hsize hres hM hAc hWc
+  exact ⟨t, U, T, K, ht, hK, hKbound, hU, hT, hcert⟩
+
 end DiophantineRigidity
