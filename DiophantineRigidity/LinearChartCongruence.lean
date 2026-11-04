@@ -1,4 +1,4 @@
-import DiophantineRigidity.CongruenceSpacing
+import DiophantineRigidity.ModularFareyPacking
 
 /-!
 # Exact congruences from linear projective-chart specializations
@@ -100,5 +100,34 @@ theorem linear_family_dvd_cross_of_integer_certificate
     rw [Finset.sum_mul]
   rw [hfactor, hcert, one_mul] at hsum
   exact hsum
+
+
+/-- For a degree-one coefficient family with integer Bézout
+certificate, every common congruence divisor M gives an
+explicit power-saving packing bound on the corresponding rational
+arguments. There is no p-adic root-covering assumption.
+
+This closes the fixed-divisor counting argument for X-degree one;
+the final summation over divisors of a global certificate constant
+is a distinct step. -/
+theorem linear_family_modular_farey_count
+    {ι : Type*} [DecidableEq ι]
+    (indices : Finset ι) (a b u v : ι → ℤ)
+    (S : Finset ℚ) (l h : ℝ) (Q M : ℕ)
+    (hlh : l ≤ h) (hQ : 0 < Q) (hM : 0 < M)
+    (hcert : (∑ j ∈ indices, (u j * a j + v j * b j)) = 1)
+    (hmem : ∀ r ∈ S, l ≤ (r : ℝ) ∧ (r : ℝ) ≤ h)
+    (hden : ∀ r ∈ S, r.den < 2 * Q)
+    (hdiv : ∀ r ∈ S, ∀ j ∈ indices,
+      (M : ℤ) ∣ a j * r.num + b j * (r.den : ℤ)) :
+    (S.card : ℝ) ≤
+      (h - l) / ((M : ℝ) / (4 * (Q : ℝ) ^ 2)) + 1 := by
+  apply modular_farey_interval_card_le S l h Q M
+    hlh hQ hM hmem hden
+  intro r hr s hs hrs
+  exact linear_family_dvd_cross_of_integer_certificate
+    indices a b u v r.num (r.den : ℤ) s.num (s.den : ℤ) (M : ℤ)
+    hcert (fun j hj => hdiv r hr j hj)
+    (fun j hj => hdiv s hs j hj)
 
 end DiophantineRigidity
